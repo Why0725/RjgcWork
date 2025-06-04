@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.StudentDAO">
+
+	<!-- 通过用户id 获取该用户所有的 简历信息-->
+	<select id="findResumeByuserid" parameterType="java.lang.Integer" resultType="com.education.entity.Resume">
+		select * from resume where user = #{userid}
+	</select>
+	<!-- 添加简历 -->
+	<insert id="insertResume" parameterType="com.education.entity.Resume">
+		insert into resume(name,sex,birthday,phonenum,email,schoolname,time,education,major,experience,jobintension,user,statue,flag,createtime) values(#{name},#{sex},#{birthday},#{phonenum},#{email},#{schoolname},#{time},#{education},#{major},#{experience},#{jobintension},#{user},0,1,#{createtime})
+	</insert>
+	
+	<!-- 根据简历id 删除简历 -->
+	<delete id="deleteResumeByresumeid" parameterType="java.lang.Integer">
+		delete from resume where id = #{resumeid}
+	</delete>
+	<!-- 修改简历  -->
+	<update id="updateResume" parameterType="com.education.entity.Resume">
+		update resume set name = #{name},sex = #{sex},birthday = #{birthday},phonenum = #{phonenum},email = #{email},schoolname = #{schoolname},time = #{time},education = #{education},major = #{major},experience = #{experience},jobintension = #{jobintension},user = #{user},statue = 0,flag = #{flag},createtime = #{createtime} where id = #{id}
+	</update>
+	
+	<!-- 添加申请表 学生申请职位的记录表 -->
+	<insert id="insertUserPosition" parameterType="com.education.entity.Userposition">
+		insert into userposition(user,position,flag,createtime) values(#{user},#{position},1,#{createtime});
+	</insert>
+	<!-- 根据教员id 和职位的id 判断该教员是否已经申请了这个职位 -->
+	<select id="findUserpositionByuseridAndpositonid" parameterType="java.lang.Integer" resultType="com.education.entity.Userposition">
+		select * from userposition where user = #{userid} and position = #{positionid}
+		
+	</select>
+	
+	<!-- 查看该用户 申请职位的列表 -->
+	<select id="findPosition" parameterType="java.lang.Integer" resultType="com.education.entity.Position">
+		select * from tposition where id in (select position from userposition where user = #{userid})
+	</select>
+	<!--  删除 该用户的指定的 求职的职位信息 -->
+	<delete id="deleteUserPosition" parameterType="java.lang.Integer">
+		delete from userposition where user = #{userid} and position = #{positionid}
+	</delete>
+	
+	<!-- 通过 职位id 获取职位详细信息 -->
+	<select id="findPositionByid" parameterType="java.lang.Integer">
+		select * from tposition where id = #{positionid}
+	</select>
+</mapper>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>应聘者列表</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css?v=3.3.6" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap-responsive/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/uniform/uniform.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/select2/select2.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-style2.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-media.css" />
+<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+<link href="/HomeEducationPlatform/static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<style>
+	 h1 {
+	 	font-weight: bold;
+	 }
+	th {
+		font-size: 13px !important;
+		font-weight: bold;
+	}
+	#content-header h1 {
+		padding-top: 10px;
+    padding-bottom: 10px;
+	}
+</style>
+</head>
+<body>
+
+<div id="content">
+  <div id="content-header">
+      <h1>应聘者列表（评论）</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-content nopadding">
+        	<table id="appList" class="table table-bordered table-striped" data-mobile-responsive="true"  data-pagination="true">
+            <thead>
+                <tr>
+                	<th data-field = "num">序号</th>
+                	<th data-field = "aid">ID</th>
+                  	<th data-field = "aname">用户名</th>
+                  	<th data-field = "email">email</th>
+                  	<th data-field = "resumeid">简历ID</th>
+                  	<th data-field = "status">简历状态(hide)</th>
+                  	<th data-field = "rstatus"
+                  	data-formatter="rstatusFormatter"
+			        data-events="rstatusEvents">简历状态</th>
+                  	
+                  	<th data-field="operation" 
+			        data-formatter="actionFormatter"
+			        data-events="actionEvents">操作</th>
+                </tr>
+            </thead>
+        	</table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.ui.custom.js"></script> 
+<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script> 
+<!--<script src="../../../static/modules/plugin/uniform/jquery.uniform.js"></script> -->
+<script src="/HomeEducationPlatform/static/modules/plugin/select2/select2.min.js"></script> 
+<!--<script src="js/jquery.dataTables.min.js"></script> -->
+<!--<script src="../../../static/system/admin/js/matrix.js"></script> 
+<script src="../../../static/system/admin/js/matrix.tables.js"></script>-->
+<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap-table/bootstrap-table.min.js"></script>
+<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+<script>
+	$('#appList').bootstrapTable({
+		method: 'post', 
+		url: "/HomeEducationPlatform/admin/getApplicant",
+		search: true,
+		pagination: true,
+        columns:[{  
+	            field: 'num',//可不加  
+	            title: '序号',//标题  可不加  
+	            formatter: function (value, row, index) {  
+	                return index+1; 
+	            }  
+	        },{  
+	            checkbox: false 
+        	}]  
+	});
+	$('#appList').bootstrapTable('hideColumn', 'status');
+	//简历状态
+	function rstatusFormatter(value, row, index) {
+		if(row.status == "0"){
+			return '未填写';
+		}else if(row.status == "1"){
+			return '已填写';
+		}else{
+			return '数据错误';
+		}
+	}
+	//操作
+	function actionFormatter(value, row, index) {
+		if(row.status == "0"){
+			
+		}else{
+			return  '&nbsp;&nbsp;&nbsp;&nbsp;<a class="check" >查看</a>';
+		}
+	}
+	window.actionEvents = {
+			'click .check': function(e, value, row, index) { //查看  
+				//查看
+				var rid = row.resumeid;
+				console.log(rid);
+				document.location.href = "/HomeEducationPlatform/admin/toCommentList?positionid=0&resumeid=" + rid;
+			}
+		 }
+</script>
+</body>
+</html>

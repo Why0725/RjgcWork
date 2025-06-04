@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.AdminDAO">
+
+	<!-- 用户管理 状态 statue 1 为系统管理员， 2 为兼职学生 3，为家长 -->
+	<!-- 查找身份为学生的所有的用户  -->
+	<select id="findStudents" resultType="com.education.entity.Users">
+		select * from users where statue = 2
+	</select>
+	<!-- 查找身份为家长的所有用户   -->
+	<select id="findParents" resultType="com.education.entity.Users">
+		select * from users where statue = 3
+	</select>
+	
+	<select id="findUserById" parameterType="java.lang.Integer" resultType="com.education.entity.Users">
+		select * from users where id = #{userid}
+	</select>
+	<!-- 通过用户id 获取该用户所有的 简历信息-->
+	<select id="findResume" parameterType="java.lang.Integer" resultType="com.education.entity.Resume">
+		select * from resume where user = #{userid}
+	</select>
+	<!-- 通过用户id 删除用户 -->
+	<delete id="removeUser" parameterType="java.lang.Integer">
+		delete from users where id = #{userid}
+	</delete>
+	<select id="getUsersByName" parameterType="java.lang.String" resultType="com.education.entity.Users">
+		select * from users where name=#{name}
+	</select>
+	<select id="getUsersByEmail" parameterType="java.lang.String" resultType="com.education.entity.Users">
+		select * from users where email=#{email}
+	</select>
+	
+	<!-- 根据简历id 删除简历 -->
+	<delete id="romoveResume" parameterType="java.lang.Integer">
+		delete from resume where id = #{resumeid}
+	</delete>
+	<!-- 根据简历id 查找简历 -->
+	<select id="findResumeByid" parameterType="java.lang.Integer" resultType="com.education.entity.Resume">
+		select * from resume where id = #{id}
+	</select>
+	
+	<update id="updateResume" parameterType="com.education.entity.Resume">
+		update resume set name = #{name},sex = #{sex},birthday = #{birthday},phonenum = #{phonenum},email = #{email},schoolname = #{schoolname},time = #{time},education = #{education},major = #{major},experience = #{experience},jobintension = #{jobintension},user = #{user},statue = #{statue},flag = #{flag},createtime = #{createtime} where id = #{id}
+	</update>
+	
+	<!-- 通过用户id 获取所有的该用户的招聘信息 -->
+	<select id="findPositionsByUserid" parameterType="java.lang.Integer" resultType="com.education.entity.Position">
+		select * from tposition where user = #{userid}
+	</select>
+	<!-- 通过简历id删除职位信息 -->
+	<delete id="removePosition" parameterType="java.lang.Integer">
+		delete from tposition where id = #{id}
+	</delete>
+	
+	<!-- 修改 职位信息 -->
+	<update id="updatePosition" parameterType="com.education.entity.Position">
+		update tposition set name = #{name},place = #{place},information = #{information},salary = #{salary},contact = #{contact},statue = #{statue},user = #{user},flag = #{flag},createtime = #{createtime} where id = #{id}
+	</update>
+	<!-- 修改用户 -->
+	<update id="updateUser" parameterType="com.education.entity.Users">
+		update users set name=#{name},password=#{password},email=#{email} where id = #{id}
+	</update>	
+	
+	<select id="findPositionByid" parameterType="java.lang.Integer" resultType="com.education.entity.Position">
+		select * from tposition where id = #{id}
+	</select>
+	
+	<!-- 获取所有的未审核的招聘信息列表 1 为 已经审核 0 表示未审核 -->
+	<select id="findUnauditedPosition" resultType="com.education.entity.Position">
+		select * from tposition where statue = 0
+	</select>
+	
+	<!-- 获取所有已经审核的职位 -->
+	<select id="findAuditedPosition" resultType="com.education.entity.Position">
+		select * from tposition where statue = 1
+	</select>
+	
+	<!-- 获取所有的未审核的学生简历 列表 1 为 已经审核 0 表示未审核 -->
+	<select id="findUnauditedResumes" resultType="com.education.entity.Resume">
+		select * from resume where statue = 0
+	</select>
+</mapper>

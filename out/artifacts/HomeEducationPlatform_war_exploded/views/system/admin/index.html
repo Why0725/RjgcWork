@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>家教平台 | 管理员</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--<link rel="stylesheet" href="../../../static/modules/plugin/bootstrap/bootstrap.min.css?v=3.3.6" />
+    <link rel="stylesheet" href="../../../static/modules/plugin/bootstrap-responsive/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="../../../static/system/admin/css/matrix-style.css" />
+    <link rel="stylesheet" href="../../../static/system/admin/css/matrix-media.css" />
+    <link href="../../../static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />-->
+    <link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css?v=3.3.6" />
+    <link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap-responsive/bootstrap-responsive.min.css" />
+    <link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-style.css" />
+    <link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-media.css" />
+    <link href="/HomeEducationPlatform/static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+	<style>
+		.text,.fa-user {
+			color: rgb(153, 153, 153);
+		}
+	</style>
+</head>
+<body>
+    <!--Header-part-->
+    <div id="header">
+      <h1><a href="#">管理员端</a></h1>
+    </div>
+    <!--close-Header-part--> 
+	
+    <!--top-Header-menu-->
+    <div id="user-nav" class="navbar navbar-inverse">
+        <ul class="nav">
+            <li  class="dropdown" id="profile-messages" >
+                <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle">
+                    <i class="fa fa-user"></i>&nbsp;
+                    <span class="text">欢迎你，admin</span>&nbsp;
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="modify"><i class="icon-user"></i> 个人资料</a></li>
+                    <li class="divider"></li>
+                    <li><a href="loginout"><i class="icon-key"></i> 退出系统</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--close-top-Header-menu-->
+
+    <!--sidebar-menu-->
+    <div id="sidebar" style="OVERFLOW-Y: auto; OVERFLOW-X:hidden;">
+        <ul>
+            <li class="submenu active">
+                <a class="menu_a" link="/HomeEducationPlatform/views/system/admin/welcome.html"><i class="fa fa-home"></i> <span>主页</span></a> 
+            </li>
+            <li class="submenu"> 
+                <a link="/HomeEducationPlatform/views/system/admin/app_table.html" class="menu_a">
+                    <i class="fa fa-male"></i> 
+                    <span>应聘者管理</span> 
+                </a>
+            </li>
+            <li class="submenu">
+				<a class="menu_a" link="/HomeEducationPlatform/views/system/admin/rec_table.html" >
+                    <i class="fa fa-child"></i> 
+                    <span>招聘者管理</span> 
+                </a>
+            </li>
+            
+            <li class="submenu"> 
+                <a link="/HomeEducationPlatform/views/system/admin/app_table_forcomment.html" class="menu_a">
+                    <i class="fa fa-male"></i> 
+                    <span>应聘者（教师）评论管理</span> 
+                </a>
+            </li>
+            <li class="submenu">
+				<a class="menu_a" link="/HomeEducationPlatform/views/system/admin/rec_table_forcomment.html" >
+                    <i class="fa fa-child"></i> 
+                    <span>职位评论管理</span> 
+                </a>
+            </li>
+             <li class="submenu">
+				<a class="menu_a" link="/HomeEducationPlatform/views/system/admin/notice_table.html" >
+                    <i class="fa fa-child"></i> 
+                    <span>公告管理</span> 
+                </a>
+            </li>
+            <li class="submenu">
+				<a class="menu_a" link="/HomeEducationPlatform/views/system/admin/news_table.html" >
+                    <i class="fa fa-child"></i> 
+                    <span>新闻管理</span> 
+                </a>
+            </li>
+            <li class="submenu">
+            	<a class="menu_a" link="/HomeEducationPlatform/views/system/admin/log_table.html" >
+                    <i class="fa fa-child"></i> 
+                    <span>登录日志管理</span> 
+                </a>
+            </li>
+            <li class="submenu"> 
+                <a href="#">
+                    <i class="fa fa-file-o"></i> 
+                    <span>信息审核</span> 
+                </a>
+                <ul>
+                    <li><a class="menu_a" link="/HomeEducationPlatform/views/system/admin/resume_table.html"><i class="fa fa-caret-right"></i>简历审核</a></li>
+                    <li><a class="menu_a" link="/HomeEducationPlatform/views/system/admin/recruit_table.html"><i class="fa fa-caret-right"></i>招聘信息审核</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--sidebar-menu-->
+
+    <!--main-container-part-->
+    <div id="content">
+        <!--breadcrumbs-->
+        <div id="content-header">
+          <div id="breadcrumb"> <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a></div>
+        </div>
+        <!--End-breadcrumbs-->
+        <iframe src="/HomeEducationPlatform/views/system/admin/welcome.html" id="iframe-main" frameborder='0' style="width:100%;"></iframe>
+    </div>
+    <!--end-main-container-part-->
+
+    <!--<script src="../../../static/modules/plugin/excanvas/excanvas.min.js"></script> 
+    <script src="../../../static/modules/plugin/jquery/jquery.min.js"></script>
+    <script src="../../../static/modules/plugin/jquery/jquery.ui.custom.js"></script> 
+    <script src="../../../static/modules/plugin/bootstrap/bootstrap.min.js"></script> 
+    <script src="../../../static/modules/plugin/nicescroll/jquery.nicescroll.min.js"></script> 
+    <script src="../../../static/system/admin/js/matrix.js"></script> -->
+    <script src="/HomeEducationPlatform/static/modules/plugin/excanvas/excanvas.min.js"></script> 
+    <script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+    <script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.ui.custom.js"></script> 
+    <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script> 
+    <script src="/HomeEducationPlatform/static/modules/plugin/nicescroll/jquery.nicescroll.min.js"></script> 
+    <script src="/HomeEducationPlatform/static/system/admin/js/matrix.js"></script>
+
+
+    <script type="text/javascript">
+
+    //初始化相关元素高度
+    function init(){
+        $("body").height($(window).height()-80);
+        $("#iframe-main").height($(window).height()-90);
+        $("#sidebar").height($(window).height()-50);
+    }
+
+    $(function(){
+        init();
+        $(window).resize(function(){
+            init();
+        });
+    });
+
+    // This function is called from the pop-up menus to transfer to
+    // a different page. Ignore if the value returned is a null string:
+    function goPage (newURL) {
+        // if url is empty, skip the menu dividers and reset the menu selection to default
+        if (newURL != "") {
+            // if url is "-", it is this page -- reset the menu:
+            if (newURL == "-" ) {
+                resetMenu();            
+            } 
+            // else, send page to designated URL            
+            else {  
+                document.location.href = newURL;
+            }
+        }
+    }
+
+    // resets the menu selection upon entry to this page:
+    function resetMenu() {
+        document.gomenu.selector.selectedIndex = 2;
+    }
+
+    // uniform使用示例：
+    // $.uniform.update($(this).attr("checked", true));
+    </script>
+</body>
+</html>

@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	  	<title>新闻</title>
+	  	<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+	  	<!-- Custom Main StyleSheet CSS -->
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/style.css" rel="stylesheet">
+	  	<!-- Color CSS -->
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/color.css" rel="stylesheet">
+	  	<!-- Responsive CSS -->
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/responsive.css" rel="stylesheet">
+		<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">
+		<style>
+		/* */
+		a,a:link,a:hover,a:active,a:focus,a:visited {
+			text-decoration: none;
+		}
+		/**/
+		.header {
+			/*padding: 0px !important;*/
+			margin: 0px auto;
+		}
+		.gt_menu_bg {
+			height: 60px;
+		}
+		.menutitle {
+			width: 120px !important;
+			text-align: center;
+		}
+		.menutitle>a {
+			letter-spacing: 2px;
+		}
+		.menutitle ul li {
+			width: 60%;
+		}
+		.gt_top_wrap {
+			height: 38px;
+		}
+		.addr {
+			padding-left: 0px;
+		}
+		.gt_copyright_wrap {
+			background: rgb(22, 23, 28);
+		}
+		.selectbox {
+			width: 300px;
+			/*height:*/
+		}
+		.boxtitle,h4 {
+			width: 300px;
+			height:60px;
+			line-height: 60px;
+			vertical-align: middle;
+			text-align: center;
+			background: rgb(45, 204, 112);
+			color: #fff;
+			letter-spacing: 2px;
+			font-weight: 500;
+		}
+		.boxbody {
+			/*border: 1px solid #CCCCCC;*/
+			padding: 20px 10px;
+			background-color: #fff;
+		}
+		.search_btn {
+			width: 100%;
+			height: 40px;
+			/*line-height: 40px;*/
+			vertical-align: middle;
+			color: #fff;
+			font-size: 15px;
+			letter-spacing:  5px;
+			background: rgb(45, 204, 112);
+			border-radius: 0px;
+		}
+		.row {
+			margin-bottom: 15px;
+		}
+		.col-md-8 select {
+			width: 185px;
+			position: relative;
+			left: -15px;
+		}
+		.inplabel {
+			font-size: 15px;
+			letter-spacing: 1px;
+			font-weight: 400;
+			height: 34px;
+			line-height: 34px;
+			vertical-align: middle;
+		}
+		.form-control {
+			border-radius: 0px;
+			border: 1px solid rgb(234, 234, 234);
+		}
+		.content {
+			padding-top: 35px;
+			padding-bottom: 35px;
+			/*background-image: url(../../../static/system/applicant/img/teacher.jpg);*/
+			/*width: 80%;*/
+			background-color: rgb(230, 239, 246);
+			margin: 0px;
+		}
+		
+		
+		
+		
+		.center {
+			text-align: center;
+		}
+		h1 {
+			font-size: 22px;
+			font-weight: bold;
+		}
+		.fa-lightbulb-o {
+			font-size: 25px;
+			color: rgb(255, 160, 47);
+		}
+		.warntext {
+			font-size: 15px;
+			height: 25px;
+			line-height: 25px;
+			vertical-align: middle;
+		}
+		.warnrow {
+			height: 25px;
+			line-height: 25px;
+			vertical-align: middle;
+		}
+		.darkgray {
+			background: rgb(225, 229, 232);
+		}
+		.lightgray {
+			background: rgb(245, 246, 248);
+		}
+		.green {
+			background: rgb(40, 183, 121);
+			color: #fff;
+		}
+		.textgreen{
+			/*background: #fff;*/
+			color: rgb(40, 183, 121);
+		}
+		.pricelist {
+			margin-bottom: 58px;
+		}
+		.pricelist .row {
+			height: 58px;
+			line-height: 58px;
+			vertical-align: middle;
+			margin-bottom: 0px !important;
+		}
+		ul.ui-choose>li {
+			margin: 1px;
+			font-size: 13px;
+		}
+		
+		.checkgroup {
+			margin-top: 10px;
+		}
+		.labeltext {
+			height: 37px;
+			line-height: 37px;
+			font-size: 16px;
+			font-weight: normal;
+		}
+		.row_left {
+			padding-right: 0px;
+		}
+		.row_right {
+			padding-left: 0px;
+		}
+		.row1 {
+			border-bottom: 1px solid rgb(238, 238, 238);
+		}
+		.row {
+			padding-top: 5px; 
+			padding-bottom: 5px; 
+		}
+		.input_width {
+			width: 20%;
+			margin-right: 20px;
+			border-radius: 18px;
+		}
+		.line {
+			width: 5px;
+			/*height: 8px;*/
+			background: rgb(45, 204, 112);
+			margin-right: 3px;
+		}
+		.list_title {
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.btn-default {
+			border-color: rgb(234, 234, 234);
+		}
+		.fa-search {
+			color: rgb(45, 204, 112);
+		}
+		.right {
+			float: right;
+		}
+		li {
+			list-style: none;
+		}
+		.card_img {
+			text-align: center;
+		}
+		.cardtext {
+			padding-left: 0px;
+		}
+		.card_row {
+			margin-bottom: 0px;
+		}
+		.suname {
+			font-size: 18px;
+			font-weight: 500;
+		}
+		.job {
+			border: 1px solid rgb(45, 204, 112);
+			height: 22px;
+			line-height: 22px;
+			vertical-align: middle;
+			border-radius: 11px;
+			padding: 3px 6px;
+		}
+		.fa-map-marker {
+			color: rgb(45, 204, 112);
+			font-size: 18px;
+		}
+		.exptext,.pretext {
+			font-size: 15px;
+			letter-spacing: 1px;
+		}
+		.card_btn {
+			background: rgb(45, 204, 112);
+			border-radius: 20px;
+			color: #fff;
+			width: 75%;
+			font-size: 15px;
+			font-weight: bold;
+		}
+		.card {
+			height: 145px;
+			/*border: 1px solid #ccc;*/
+		}
+		.card:hover {
+			box-shadow:0px 0px  10px 5px rgb(234, 234, 234);
+			-moz-box-shadow:0px 0px  10px 5px rgb(234, 234, 234);
+			-webkit-box-shadow:0px 0px  10px 5px rgb(234, 234, 234);
+		}
+		ul {
+			padding: 0px;
+		}
+		li {
+			padding: 24px auto;
+		}
+		.list_body_card_row {
+			margin-bottom: 0px;
+			height: 140px;
+			padding: 30px;
+		}
+		.exprienttext {
+			font-size: 13px;
+			letter-spacing: 1px;
+		}
+		.footer .row {
+			margin: 0px !important;
+		}
+		.footer {
+			margin-top: 100px;
+			/*background: rgb(72, 75, 80);*/
+			font-size: 14px;
+			background: #000;
+			height: 180px;
+		/*	color: rgb(161, 162, 164);*/
+			color: #666666;
+			padding-top: 40px;
+		}
+		.footer_list_row {
+			height: 30px;
+			line-height: 30px;
+			vertical-align: middle;
+		}
+		.footer_list_title {
+			font-size: 17px;
+		}
+		.phone {
+			font-size: 27px;
+			color: rgb(40, 183, 121);
+		}
+		.footer_list {
+			border: none;
+		}
+		.footer .row {
+			text-align: center;
+		}
+		.card_line_row {
+			height: 30px;
+			line-height: 30px;
+		}
+		/*.fa-map-marker {
+			font-size: 25px;
+		}*/
+		.card_btn {
+			width: 111px;
+			border-radius: 18px;
+			background: rgb(45, 204, 112);
+			font-size: 14px;
+		}
+		.btn_row {
+			height: 80px;
+			line-height: 80px;
+			vertical-align: middle;
+		}
+		.price {
+			color: rgb(45, 204, 112);
+			font-size: 15px;
+		}
+		.status {
+			color: #FF0033;
+			font-size: 15px;
+		}
+		</style>
+	<body>
+		<div class="container">
+	    	<div class="teacherlist">
+	    		<!--新闻列表标题START-->
+	    		<div class="list_header">
+	    			<div class="row">
+	    				<div class="col-md-3 col-sm-3">
+	    					<span class="line"> &nbsp;</span>
+	    					<span class="list_title">新闻</span>
+	    				</div>
+	    			</div>
+	    		</div>
+	    		<!--教师列表标题END-->
+	    		<div class="list_body">
+	    			<ul id="listResumes">
+	    				
+	    			</ul>
+	    		</div>
+	    	</div>
+	    	
+    	</div>
+    	<div class="footer">
+	    	<div class="row">
+	    		<!--第一列 START-->
+	    		<div class="col-md-3 col-sm-3 footer_list">
+	    			<div class="row footer_list_row footer_list_title"> <span>服务热线</span> </div>
+	    			<div class="row footer_list_row"> <span>(工作日9:00 ~ 18:00)</span> </div>
+	    			<div class="row footer_list_row"> <span class="phone">vx：mtyeducation</span> </div>
+	    		</div>
+	    		<!--第一列 END-->
+	    		<!--第二列 START-->
+	    		<div class="col-md-6 col-sm-6">
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>会员指南</span> </div>
+		    			<div class="row footer_list_row"> <span>我是教员</span> </div>
+		    			<div class="row footer_list_row"> <span>我是学员</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>网站导航</span> </div>
+		    			<div class="row footer_list_row"> <span>帮助中心</span> </div>
+		    			<div class="row footer_list_row"> <span>服务城市</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>简介</span> </div>
+		    			<div class="row footer_list_row"> <span>关于我们</span> </div>
+		    			<div class="row footer_list_row"> <span>服务声明</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>合作</span> </div>
+		    			<div class="row footer_list_row"> <span>友情链接</span> </div>
+	    			</div>
+	    			
+	    		</div>
+	    		<!--第二列 END-->
+	    		<!--第三列 START-->
+	    		<div class="col-md-3 col-sm-3 footer_list">
+	    			<div class="row footer_list_row footer_list_title"> <span>关注微信</span> </div>
+	    			<div class="row footer_list_row"> <img style="width: 70px;height: 70px;" src="/HomeEducationPlatform/static/system/applicant/img/QRcode.png"> </div>
+	    		</div>
+	    		<!--第三列 END-->
+	    	</div>
+	    </div>
+	    <!--页脚END-->
+      <!--Jquery Library-->
+	  <script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+	  <!--Bootstrap core JavaScript-->
+	  <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+	  <script src="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.js"></script>
+		<script type="text/javascript">
+		$.ajax({
+			url: '/HomeEducationPlatform/home/listTnews',
+			type: 'POST',
+			dataType: 'json',
+			}).done(function(data) {
+				var result = eval(data.news);
+				
+				$("#listResumes").html(" ");
+				var str = "";
+				for(var i=0;i<result.length;i++){
+					
+					console.log(result[i]);
+					str = str+'<li class="card" id="li"><div class="row list_body_card_row"><div class="col-md-10 col-sm-10 card_line_row"><div class="row card_row"><div class="col-md-3 col-sm-3"> <span class="suname">'+result[i].title+'</span></div><div class="col-md-2 col-sm-2"> <span class="job">点击次数:'+result[i].clicknum+'</span></div><div class="col-md-3 col-sm-3"> <span id="resumeid" class="resumeid">ID:'+result[i].id+'</span></div></div><div class="row card_line_row"><div class="col-md-8 col-sm-8"><i class=""></i><span style="font-size: 15px">:内容:</span><span>'+result[i].content+'</span></div></div></div><div class="col-md-2 col-sm-2 card_row  btn_row"><button class="btn card_btn menuItem" onclick="toInfo()">更多详情</button></div></div></li>';
+				}
+				
+				var html = $(str);
+				$("#listResumes").html(html);
+	        }).fail(function() {
+				console.log("错误");
+	        	setTimeout("",400);
+	        });
+		
+		function toInfo(){
+			
+			$('li').click(function(){
+				//console.log("======"+$(this).text().charAt(4));
+				//console.log("======"+$(this).text().charAt(15));
+				console.log("======"+$(this).text().split(':')[2]);
+				var id = $(this).text().split(':')[2];
+				
+				document.location.href ="/HomeEducationPlatform/views/system/applicant/news_info.html?id="+id;
+				
+			})
+		}
+		</script>
+	</body>
+</html>

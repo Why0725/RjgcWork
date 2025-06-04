@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>招聘信息</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap-responsive/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/colorpicker/colorpicker.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/datepicker/datepicker.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/uniform/uniform.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/select2/select2.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-style2.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-media.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/wysihtml5/bootstrap-wysihtml5.css" />
+<link href="/HomeEducationPlatform/static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+
+<style>
+	.control-group .controls label{
+		display:inline-block;
+	}
+	 h1 {
+	 	font-weight: bold;
+	 }
+	#content-header h1 {
+		padding-top: 10px;
+    	padding-bottom: 10px;
+	}
+	.box {
+		padding-left: 3px;
+		padding-right: 3px;
+	}
+	.control-label {
+		padding-left: 0px;
+		padding-right: 0px;
+	}
+	.controls  {
+		margin: 0px !important;
+	}
+	
+	
+	form {
+		padding-bottom: 35px;
+	}
+	.row {
+		padding-top: 15px;
+		/*padding-bottom: 15px;*/
+	}
+	.inplabel {
+		text-align: right;
+		height: 32px;
+		line-height: 32px;
+		vertical-align: middle;
+	}
+	.area {
+		position: relative;
+		left: -6%;
+	}
+	.status {
+		color: rgb(217, 83, 79);
+	}
+	.btn_row {
+		padding-top: 25px;
+		margin-left: 0px;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+
+<div id="content">
+  <div id="content-header">
+      <h1>招聘信息</h1>
+  </div>
+	<div class="container-fluid">
+	  <div class="row-fluid">
+	    <div class="col-md-12 col-sm-12 box">
+	      <div class="widget-box">
+	        <div class="widget-title"> <span class="icon"> <i class="fa fa-align-justify"></i> </span>
+	          <h5>状态：<span class="status" id="status"></span></h5>
+	        </div>
+	        <div class="widget-content nopadding">
+	          <form action="#" method="get" class="container-fluid">
+	          	<div class="row">
+	          		<div class="control-group col-md-4 col-sm-4">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">ID:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="text" name="id" id="id" class="form-control input" readonly>
+                        </div>
+		            </div>
+		            <div class="control-group col-md-4 col-sm-4">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">创建时间:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="text"  name="createtime" id="createtime" class="form-control input" readonly>
+                        </div>
+		            </div>
+	          	</div>
+	          	<div class="row">
+		            <div class="control-group col-md-4 col-sm-4">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">题目:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="text" name="name" id="name" class="form-control input">
+                        </div>
+		            </div>
+		            <div class="control-group col-md-4 col-sm-4">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">工资:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="text" name="salary" id="salary" class="form-control input">
+                        </div>
+		            </div>
+	          	</div>
+	          	<div class="row">
+		            <div class="control-group col-md-4 col-sm-4">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">联系方式:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="text" name="contact" id="contact" class="form-control input">
+                        </div>
+		            </div>
+		            <div class="control-group col-md-4 col-sm-4">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">地址:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="text" name="place" id="place" class="form-control input">
+                        </div>
+		            </div>
+	          	</div>
+	          	<div class="row area">
+	          		<div class="control-group col-md-12 col-sm-12">
+		              	<label class="col-sm-2 col-md-2 control-label inplabel">要求:</label>
+                        <div class="col-sm-9 col-md-9 inp">
+                            <textarea type="textarea"  rows="3" cols="20" name="information" id="information" class="form-control input"></textarea>
+                        </div>
+		            </div>
+	          	</div>
+	           
+	            
+	          </form>
+	        </div>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+</div>
+
+<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.ui.custom.js"></script> 
+<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script> 
+<!--<script src="../../../static/modules/plugin/colorpicker/bootstrap-colorpicker.js"></script> 
+<script src="../../../static/modules/plugin/datepicker/bootstrap-datepicker.js"></script> 
+<script src="../../../static/system/admin/js/masked.js"></script> 
+<script src="../../../static/modules/plugin/uniform/jquery.uniform.js"></script> 
+<script src="../../../static/modules/plugin/select2/select2.min.js"></script> 
+<script src="../../../static/system/admin/js/matrix.js"></script> 
+<script src="../../../static/system/admin/js/matrix.form_common.js"></script> 
+<script src="../../../static/modules/plugin/wysihtml5/wysihtml5-0.3.0.js"></script> 
+<script src="../../../static/modules/plugin/peity/jquery.peity.min.js"></script> 
+<script src="../../../static/modules/plugin/wysihtml5/bootstrap-wysihtml5.js"></script> -->
+<script>
+	var url = location.search;
+	console.log(url);
+	var id = url.split("=")[1];
+	console.log(id);
+	
+	$.ajax({
+		url: '/HomeEducationPlatform/admin/showPositionImByid',
+		type: 'POST',
+		dataType: 'json',
+		data: {"id":id},
+		}).done(function(data) {
+			var id = data.id;
+			$("#id").val(id);
+			var name = data.name;
+			$("#name").val(name);
+			var place = data.place;
+			$("#place").val(place);
+			var information = data.information;
+			$("#information").val(information);
+			var salary = data.salary;
+			$("#salary").val(salary);
+			var contact = data.contact;
+			$("#contact").val(contact);
+			var statue = data.statue;
+			if(statue == 1){
+				$("#status").html("已审核");
+			}else{
+				$("#status").html("未审核");
+			}
+			var createtime = data.createtime;
+			$("#createtime").val(createtime);
+        }).fail(function() {
+			console.log("错误");
+        	setTimeout("",400);
+        });
+		function changeStatus(){
+				
+				if($("#status").html()=="已审核")
+				{
+					console.log("aaaaaaaa");
+					//document.location.href = "/HomeEducationPlatform/admin/changeResumeStatue?id=" + $("#id").val();
+					$.ajax({
+						url: '/HomeEducationPlatform/admin/changePositionStatue',
+						type: 'POST',
+						dataType: 'json',
+						data: {"id":$("#id").val()},
+						}).done(function(data) {
+							
+							alert("修改成功");
+				        	$("#status").html("未审核");
+				        }).fail(function() {
+				        	alert("修改失败");
+				        	
+				        });
+					
+					
+				}else{
+					alert("正处于 “未审核” 状态 ，不能改为“未审核”状态");
+				}
+			}
+			
+			function deletePosition(){
+				document.location.href = "/HomeEducationPlatform/admin/deletePositionFromUserByid?id=" + $("#id").val();
+			}
+			
+</script>
+</body>
+</html>

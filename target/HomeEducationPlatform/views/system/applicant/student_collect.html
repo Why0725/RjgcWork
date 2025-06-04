@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>我的收藏|学生</title>
+		<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+		<!-- ui-choose -->
+		<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">
+		<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap-table/bootstrap-table.min.css" rel="stylesheet">
+		<link href="/HomeEducationPlatform/static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<style>
+		/*header style start*/
+			.header {
+				margin: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				/*margin-top: 20px;*/
+				padding-top: 26px;
+				height: 98px;
+				border-bottom: 1px solid rgb(235, 235, 235);
+			}
+			
+		
+		/*content style end*/
+		</style>
+	</head>
+	<body>
+		
+		<!-- Content START -->
+		<div id="content">
+		  <div class="container-fluid">
+		    <div class="row-fluid">
+		      <div class="span12">
+		        <div class="widget-content nopadding">
+		        	<table id="recrList" class="table table-bordered table-striped" data-mobile-responsive="true"  data-pagination="true">
+		            <thead>
+		                <tr>
+		                	<th data-field = "num">序号</th>
+		                	<th data-field = "id">ID</th>
+		                  	<th data-field = "title">标题</th>
+		                  	<th data-field = "place">地点</th>
+		                  	<th data-field = "kemu">教授科目</th>
+		                  	<th data-field = "information">详细信息</th>
+		                  	<th data-field = "salary">薪资</th>
+		                  	<th data-field = "contact">联系方式</th>
+		                  	<th data-field = "createtime">发布时间</th>
+		                  	<th data-field="operation" 
+					        data-formatter="actionFormatter"
+					        data-events="actionEvents">操作</th>
+		                </tr>
+		            </thead>
+		        	</table>
+		        </div>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+		<!-- Content END -->
+		
+		
+		<!--Jquery Library-->
+	    <script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+	    <!--Bootstrap core JavaScript-->
+	    <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<!-- ui-choose -->
+		<script src="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap-table/bootstrap-table.min.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap-table/bootstrap-table-zh-CN.min.js"></script>
+		<script>
+			$('#recrList').bootstrapTable({
+				method: 'post', 
+				url: "/HomeEducationPlatform/parent/getPositionsOfWrited",
+				search: true,
+				pagination: true,
+		        columns:[{  
+			            field: 'num',//可不加  
+			            title: '序号',//标题  可不加  
+			            formatter: function (value, row, index) {  
+			                return index+1; 
+			            }  
+			        },{  
+			            checkbox: false 
+		        	}]  
+			});
+			function actionFormatter(value, row, index) {
+				return '<a class="check" >查看</a>' + '&nbsp;&nbsp;&nbsp;&nbsp;<a class="delete">删除</a>';
+			}
+			window.actionEvents = {
+					'click .check': function(e, value, row, index) { //查看  
+						//查看
+						var rid = row.id;
+						console.log(rid);
+						document.location.href = "/HomeEducationPlatform/views/system/applicant/student_show_created.html?id=" + rid;
+					},
+					'click .delete': function(e, value, row, index) { //删除 
+						//删除未审核的职位信息
+						var rid = row.id;
+						console.log(rid);
+						document.location.href = "/HomeEducationPlatform/parent/deletePosition?id=" + rid;
+					}
+				 }
+			
+		</script>
+	</body>
+</html>

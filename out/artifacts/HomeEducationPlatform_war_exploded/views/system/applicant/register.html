@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>简历</title>
+		<!--<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">-->
+		<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">
+		<style>
+		/*header style start*/
+			.header {
+				margin: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				/*margin-top: 20px;*/
+				padding-top: 26px;
+				height: 98px;
+				border-bottom: 1px solid rgb(235, 235, 235);
+			}
+			.header .row {
+				height: 42px;
+				line-height: 42px;
+			}
+			.title_row {
+				text-align: center;
+			}
+			.title_row h4{
+				font-size: 28px;
+				letter-spacing: 28px;
+				font-weight: 500;
+			}
+		/*header style end*/
+		/*content style start*/
+			.content {
+				margin-top: 50px;
+			}
+		/*form style start*/
+			form {
+			 	
+			}
+			form .row {
+				height: 80px;
+				/*line-height: 62px;
+				vertical-align: middle;*/
+			}
+			.col-sm-2 label {
+				height: 40px;
+				line-height: 40px;
+			}
+			ul.ui-choose>li {
+				height: 40px;
+				line-height: 40px;
+				border: 1px solid rgb(206, 205, 205);
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+				margin-right: 10px;
+			}
+			ul.ui-choose>li:first-child {
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			ul.ui-choose>li:last-child {
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			ul.ui-choose>li:hover {
+				border-color: rgb(206, 205, 205);
+				color: rgb(51, 51, 51);
+			}
+			ul.ui-choose>li.selected {
+				border-color: rgb(206, 205, 205);
+				color: rgb(45, 204, 112);
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			.row_left {
+				text-align: right;
+				padding-right: 25px;
+			}
+			.row_right {
+				padding-left: 25px;
+			}
+			.row_right .form-control-height {
+				height: 40px;
+			}
+			.row_right input[type=radio] {
+				height: 40px;
+				line-height: 40px;
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+			.labeltext {
+				font-size: 16px;
+				font-weight: normal;
+				/*padding*/
+			}
+			.form-control {
+				border-color: rgb(235, 235, 235);
+				width: 100%;
+			}
+			.radio_label {
+				margin-right: 10px;
+				font-weight: normal;
+			}
+			/*radio style start*/
+    
+			input[type='radio'] {
+				width:18px;
+				height:18px;
+				position:relative;
+				background:transparent;
+				border:0;
+				outline:none;
+				appearance:none;
+				-webkit-appearance:none;
+				-moz-appearance:none;
+				margin: 12px 0 0;
+			}
+			input[type='radio']:before {
+				content:"";
+				position:absolute;
+				width:16px;
+				height:16px;
+				border:1px solid #999;
+				border-radius:100%;
+			}
+			input[type='radio']:checked:before {
+				border:1px solid transparent;
+				background:#5ECD62;
+			}
+			
+			input[type='radio']:checked:after {
+				content:"";
+				position:absolute;
+				top:3px;
+				left:3px;
+				border:2px solid #fff;
+				border-radius:100%;
+				width:10px;
+				height:10px;
+				background:#5ECD62;
+			}
+			.radio_label {
+				position: relative;
+				top: -5px;
+			}
+			input[type="radio"],input[type="radio"]:hover,input[type="radio"]:checked{
+				border: none !important;
+				outline:none !important;
+			}
+			/*radio style end*/
+			.btn_row {
+				/*text-align: center;*/
+				margin-top: 40px;
+			}
+			.btn_row .col-md-4 {
+				/*background: rgb(45, 204, 112);*/
+			}
+			.btn_row .btn {
+				width: 100%;
+				height: 48px;
+				color: #fff;
+				font-size: 18px;
+				font-weight: 500;
+				letter-spacing: 2px;
+				background: rgb(45, 204, 112);
+				border-radius: 0px;
+				-moz-border-radius: 0px;
+				-webkit-border-radius: 0px;
+			}
+			.footer_row {
+				width: 56%;
+				margin-left: auto;
+				margin-right: auto;
+				border-top: 1px solid rgb(229, 229, 229);
+				height: 60px;
+				line-height: 60px;
+			}
+			.text {
+				color: rgb(45, 204, 112);
+			}
+		/*form style end*/
+		
+		/*content style end*/
+		</style>
+	</head>
+	<body>
+		<!-- Header START-->
+		<div class="header">
+			<!-- Container START -->
+			<div class="container">
+				<!-- row START -->
+				<div class="row title_row">
+					<h4>注册</h4>
+				</div>
+				<!-- row END -->
+			</div>
+			<!-- Container END -->
+		</div>
+		<!-- Header END-->
+		<!-- Content START -->
+		<div class="content">
+			<!-- Container START -->
+			<div class="container">
+				<!--提示 START-->
+				<div class="row"  id="namefail" style="display: none;">
+					<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+						<div class="alert alert-danger alert-dismissable">
+					        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					        用户名已存在 
+					    </div>
+					</div>
+				</div>
+				<div class="row" id="emailfail" style="display: none;">
+					<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+						<div class="alert alert-danger alert-dismissable">
+					        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					        邮箱已存在 
+					    </div>
+					</div>
+				</div>
+				<div class="row"  id="regisuccess" style="display: none;">
+					<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+						<div class="alert alert-success alert-dismissable">
+					        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					        注册成功
+					    </div>
+					</div>
+				</div>
+				<div class="row" id="regifail" style="display: none;">
+					<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+						<div class="alert alert-danger alert-dismissable">
+					        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+					        注册失败 
+					    </div>
+					</div>
+				</div>
+			    <!--提示 END-->
+				<!-- Form START -->
+				<form>
+					<!-- 第一行用户名 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2 row_left">
+	    					<label class="labeltext">用户名</label>
+	    				</div>
+	    				<div class="col-md-4 col-sm-4 row_right">
+	    					<input type="text" class="form-control form-control-height" placeholder="2-12位字母/数字/下划线/中文" id="username" onblur="checkName()"/>
+	    				</div>
+					</div>
+					<!-- 第一行用户名 END -->
+					<!-- 第二行密码 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2 row_left">
+	    					<label class="labeltext">密码</label>
+	    				</div>
+	    				<div class="col-md-4 col-sm-4 row_right">
+	    					<input type="password" class="form-control form-control-height" placeholder="6-20位字母/数字/下划线" id="password" onblur="checkPassword())"/>
+	    				</div>
+					</div>
+					<!-- 第二行密码  END -->
+					<!-- 第二2行确认密码 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2 row_left">
+	    					<label class="labeltext">确认密码</label>
+	    				</div>
+	    				<div class="col-md-4 col-sm-4 row_right">
+	    					<input type="password" class="form-control form-control-height" id="password2" onblur="checkPassword2()"/>
+	    				</div>
+					</div>
+					<!-- 第二2行确认密码  END -->
+					<!--第三行邮箱 START-->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2 row_left">
+							<label class="labeltext">邮箱</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<input type="email" class="form-control form-control-height" id="email" onblur="checkEmail()" />
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2 row_left">
+							<label class="labeltext">身份证号</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<input type="text" class="form-control form-control-height" id="idcard" onblur="checkIdCard()" />
+						</div>
+					</div>
+					<!--第三行邮箱 END-->
+					<!-- 第四行身份 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2 row_left">
+							<label class="labeltext">身份</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right zchecked on_check">
+							<input type="radio" class="radioclass" name="identify" id="teacher" value="2" checked="checked"/><label class="radio_label">教员</label>
+							<input type="radio" class="radioclass" name="identify" id="student" value="3"/><label class="radio_label">学员</label>
+						</div>
+					</div>
+					<!-- 第四行身份 END -->
+					<div class="row btn_row">
+						<div class="col-md-2 col-sm-2 col-md-offset-2 col-sm-offset-2"></div>
+						<div class="col-md-4 col-sm-4">
+							<button type="button" class="btn" onclick="registerUser()">提交</button>
+						</div>
+					</div>
+				</form>
+				<!-- Form END -->
+				<div class="row footer_row">
+              	<div class="content_footer pull-right">
+              		已有账号，<a href="index.jsp" class="text">直接登陆>></a>
+	 		  	</div>
+              </div>
+			</div>
+			<!-- Container END -->
+		</div>
+		<!-- Content END -->
+		
+		
+	   	<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+	    <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/shake/shake.js" type="text/javascript"></script>-->
+		
+		<script type="text/javascript">
+			// 将所有.ui-choose实例化
+			$('.ui-choose').ui_choose();
+			// uc_02 select 单选
+			var uc_02 = $('#uc_02').data('ui-choose');
+			uc_02.click = function(value, item) {
+			    console.log('click', value);
+			};
+			uc_02.change = function(value, item) {
+			    console.log('change', value);
+			};
+			
+			var nameResult = false;
+			//检验用户名
+			function checkName(){
+				var username = $("#username").val();
+				//不为空
+				if("" == username||username == null){
+					$("#username").shake(2, 10, 400);
+					$("#username").css({'border-color':'#FF6666'});
+					return false;
+				}
+				//验证格式(2-12位字母/数字/下划线/中文)	
+				var reg = /^[\u4e00-\u9fff\w]{2,12}$/;
+				if(reg.test(username)){//格式正确
+					//检验用户名是否存在
+					$.ajax({
+					url: '/HomeEducationPlatform/home/checkName',
+					type: 'POST',
+					dataType: 'json',
+					data:{"username":$("#username").val()},
+					}).done(function(data) {
+						var result = data.result;
+						if(result==0){
+							//用户名已经使用了
+							 $("#namefail").show();
+                            setTimeout(function(){
+                                $("#namefail").hide();
+                            },1500);
+							$("#username").css({'border-color':'#FF6666'});
+							nameResult = false;
+						}else{
+							//用户名可以使用
+							$("#username").css({'border-color':'rgb(204, 204, 204)'});
+							nameResult = true;
+						}
+			        }).fail(function() {
+			        	//错误
+			        	alert("请求出错！");
+			        	nameResult = false;
+			        });
+			        return nameResult;
+				}else{//格式不正确
+					$("#username").shake(2, 10, 400);
+					$("#username").css({'border-color':'#FF6666'});
+					return false;
+				}
+			}
+			//检验密码
+			function checkPassword(){
+				var password = $("#password").val();
+				//不为空
+				if("" == password||password == null){
+					$("#password").shake(2, 10, 400);
+					$("#password").css({'border-color':'#FF6666'});
+					return false;
+				}
+				//验证格式(6-20位字母/数字/下划线)
+				var reg =  /^[a-zA-Z0-9_]{6,20}$/;
+				if(reg.test(password)){
+					//alert("right");
+					$("#password").css({'border-color':'rgb(204, 204, 204)'});
+					return true;
+				}else{
+					//alert("wrong");
+					$("#password").shake(2, 10, 400);
+					$("#password").css({'border-color':'#FF6666'});
+					return false;
+				}
+			}
+			//确认密码password2
+			function checkPassword2(){
+				var password = $("#password").val();
+				var password2 = $("#password2").val();
+				//不为空
+				if("" == password2||password2 == null){
+					$("#password2").shake(2, 10, 400);
+					$("#password2").css({'border-color':'#FF6666'});
+					return false;
+				}
+				//验证格式(是否和第一次输入的密码相等)
+				if(password == password2){
+					$("#password2").css({'border-color':'rgb(204, 204, 204)'});
+					return true;
+				}else{
+					$("#password2").shake(2, 10, 400);
+					$("#password2").css({'border-color':'#FF6666'});
+					return false;
+				}
+			}
+			//检验邮箱
+			var emailResult = false;
+			function checkEmail(){
+				var email = $("#email").val();
+				//不为空
+				if("" == email||email == null){
+					$("#email").shake(2, 10, 400);
+					$("#email").css({'border-color':'#FF6666'});
+					return false;
+				}
+				//验证格式
+				var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+				if(reg.test(email)){
+					//$("#email").css({'border-color':'rgb(204, 204, 204)'});
+					//检验邮箱是否存在
+					$.ajax({
+					url: '/HomeEducationPlatform/home/checkEmail',
+					type: 'POST',
+					dataType: 'json',
+					data:{"email":$("#email").val()},
+					}).done(function(data) {
+						var result = data.result;
+						if(result==0){
+							//邮箱已经使用了
+							 $("#emailfail").show();
+                            setTimeout(function(){
+                                $("#emailfail").hide();
+                            },1500);
+							$("#email").css({'border-color':'#FF6666'});
+							emailResult = false;
+						}else{
+							//邮箱可以使用
+							$("#email").css({'border-color':'rgb(204, 204, 204)'});
+							emailResult = true;
+						}
+			        }).fail(function() {
+			        	//错误
+			        	alert("请求出错！");
+			        	emailResult = false;
+			        });
+			        return emailResult;
+				}else{
+					$("#email").shake(2, 10, 400);
+					$("#email").css({'border-color':'#FF6666'});
+					return false;
+				}
+			}
+			//注册
+			function registerUser(){
+				if(checkName() && checkPassword() && checkPassword2() && checkEmail() && checkIdCard()){//注册成功
+					//提交注册表单
+					var name = $("#username").val();
+					var password = $("#password").val();
+					var email = $("#email").val();
+					var idcard = $("#idcard").val();
+					var status = $("input[name='identify']:checked").val();
+					document.location.href="/HomeEducationPlatform/home/registerUser?username="+name+"&password="+password+"&email="+email+"&status="+status+"&idcard="+idcard;
+					//提示注册成功
+					$("#regisuccess").show();
+                    setTimeout(function(){
+                        $("#regisuccess").hide();
+                    },1500);
+					return true;
+				}else{
+					//提示注册失败
+					$("#regifail").show();
+                    setTimeout(function(){
+                        $("#regifail").hide();
+                    },1500);
+					return false;
+				}
+			}
+			function checkIdCard() {
+				debugger
+				var idCard = $("#idcard").val();
+				var regIdCard=
+						/(^[1-9]\d{5}(18|19|20)?\d{4}((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$)/;
+				if(regIdCard.test(idCard)){
+					if(idCard.length == 18){
+						var idCardWi = new Array(7,9,10,5,8,4,2,1,6,3,7,9,10,5,8,4,2);
+						var idCardY = new Array(1,0,'X',9,8,7,6,5,4,3,2);
+						var idCardWiSum = 0;
+						for(var i = 0; i < 17; i++){
+							idCardWiSum += idCard.substring(i,i+1)*idCardWi[i];
+						}
+						var idCardMod = idCardWiSum%11;
+						var idCardLast = idCard.substring(17);
+						var ss = idCardY[idCardMod];
+						if(idCardLast === ss.toString().toLowerCase()){
+							$("#idcard").css({'border-color':'rgb(204, 204, 204)'});
+							return true;
+						}else{
+							$("#idcard").shake(2, 10, 400);
+							$("#idcard").css({'border-color':'#FF6666'});
+							return false;
+						}
+					}
+				}else{
+					$("#idcard").shake(2, 10, 400);
+					$("#idcard").css({'border-color':'#FF6666'});
+					return false;
+				}
+			}
+		</script>
+	</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<title>注册</title>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css?v=3.3.6" />
+		<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap-responsive/bootstrap-responsive.min.css" />
+		<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-style2.css" />
+		<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-media.css" />
+		<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-media.css" />
+		<link href="/HomeEducationPlatform/static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+		<style>
+			.content-header,
+			h1 {
+				text-align: center;
+			}
+			
+			h1 {
+				font-weight: bold;
+				/*border-bottom: 1px solid rgb(255,255,255) !important;*/
+				border: none !important;
+			}
+			
+			.widget-box {
+				margin-top: 0px;
+			}
+			
+			#content-header h1 {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			
+			form {
+				padding-bottom: 35px;
+			}
+			
+			.row {
+				padding-top: 15px;
+				padding-left: 15px;
+				padding-right: 15px;
+				/*padding-bottom: 15px;*/
+			}
+			
+			.inplabel {
+				text-align: right;
+				height: 32px;
+				line-height: 32px;
+				vertical-align: middle;
+			}
+			
+			.btn_row {
+				padding-top: 25px;
+				padding-bottom: 25px;
+				margin-left: 0px;
+				text-align: center;
+			}
+			
+			.text {
+				color: rgb(30, 193, 236);
+			}
+			
+			.footer_row {
+				width: 56%;
+				margin-left: auto;
+				margin-right: auto;
+				border-top: 1px solid rgb(229, 229, 229);
+			}
+			
+			.btn-primary {
+				letter-spacing: 5px;
+			}
+			
+			h1 {
+				font-size: 20px !important;
+				letter-spacing: 10px;
+				padding-top: 20px !important;
+				padding-bottom: 20px !important;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id="content">
+			<div id="content-header">
+				<h1>注册</h1>
+			</div>
+			<div class="container-fluid">
+				<div class="row-fluid">
+					<div class="span12">
+						<div class="widget-box">
+							<div class="widget-title"> <span class="icon"> <i class="fa fa-user"></i> </span>
+								<h5>注册</h5>
+							</div>
+							<div class="widget-content nopadding">
+								<!--提示 START-->
+								<div class="row"  id="regisuccess" style="display: none;">
+									<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+										<div class="alert alert-success alert-dismissable">
+									        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+									        注册成功
+									    </div>
+									</div>
+								</div>
+								<div class="row" id="regifail" style="display: none;">
+									<div class="col-md-6 col-sm-6 col-md-offset-3 col-sm-offset-3">
+										<div class="alert alert-danger alert-dismissable">
+									        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+									        注册失败 
+									    </div>
+									</div>
+								</div>
+								<!--提示 END-->
+								<form id="form-wizard" class="" method="post">
+									<div class="row">
+										<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+											<label class="col-sm-4 col-md-4 control-label inplabel">用户名:</label>
+											<div class="col-sm-8 col-md-8 inp">
+												<input type="password" name="username" id="username" class="form-control input" placeholder="2-12位字母/数字/下划线/中文" onblur="checkUsername()">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+											<label class="col-sm-4 col-md-4 control-label inplabel">密码:</label>
+											<div class="col-sm-8 col-md-8 inp">
+												<input type="password" name="password" id="password" class="form-control input" placeholder="6-20位字母/数字/下划线" onblur="checkPassword()">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+											<label class="col-sm-4 col-md-4 control-label inplabel">确认密码:</label>
+											<div class="col-sm-8 col-md-8 inp">
+												<input type="password" name="password2" id="password2" class="form-control input" onblur="checkPassword2()">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+											<label class="col-sm-4 col-md-4 control-label inplabel">邮箱:</label>
+											<div class="col-sm-8 col-md-8 inp">
+												<input type="text" name="email" id="email" class="form-control input" onblur="checkEmail()">
+											</div>
+										</div>
+									</div>
+									<div class="form-actions btn_row">
+										<!--<input id="back" class="btn btn-primary" type="reset" value="取消" />
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+										<button type="button" class="btn btn-primary" onclick="submitForm()">提交</button>
+									</div>
+									<div class="row footer_row">
+										<div class="content_footer pull-right">
+											已有账号，
+											<a href="index.jsp" class="text">直接登陆>></a>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.ui.custom.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<script src="/HomeEducationPlatform/static/system/admin/js/matrix.js"></script>
+		<!--抖动插件-->
+		<script src="/HomeEducationPlatform/static/modules/plugin/shake/shake.js" type="text/javascript"></script>
+		<script>
+		//用户名username
+		function checkUsername(){
+			var username = $("#username").val();
+			//不为空
+			if("" == username||username == null){
+				$("#username").shake(2, 10, 400);
+				$("#username").css({'border-color':'#FF6666'});
+				return false;
+			}
+			//验证格式(2-12位字母/数字/下划线/中文)	
+			var reg = /^[\u4e00-\u9fff\w]{2,12}$/;
+			if(reg.test(username)){
+				//alert("right");
+				$("#username").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}else{
+				//alert("wrong");
+				$("#username").shake(2, 10, 400);
+				$("#username").css({'border-color':'#FF6666'});
+				return false;
+			}
+			
+		}
+		//密码password
+		function checkPassword(){
+			var password = $("#password").val();
+			//不为空
+			if("" == password||password == null){
+				$("#password").shake(2, 10, 400);
+				$("#password").css({'border-color':'#FF6666'});
+				return false;
+			}
+			//验证格式(6-20位字母/数字/下划线)
+			var reg =  /^[a-zA-Z0-9_]{6,20}$/;
+			if(reg.test(password)){
+				//alert("right");
+				$("#password").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}else{
+				//alert("wrong");
+				$("#password").shake(2, 10, 400);
+				$("#password").css({'border-color':'#FF6666'});
+				return false;
+			}
+		}
+		//确认密码password2
+		function checkPassword2(){
+			var password = $("#password").val();
+			var password2 = $("#password2").val();
+			//不为空
+			if("" == password2||password2 == null){
+				$("#password2").shake(2, 10, 400);
+				$("#password2").css({'border-color':'#FF6666'});
+				return false;
+			}
+			//验证格式(是否和第一次输入的密码相等)
+			if(password == password2){
+				$("#password2").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}else{
+				$("#password2").shake(2, 10, 400);
+				$("#password2").css({'border-color':'#FF6666'});
+				return false;
+			}
+		}
+		//邮箱email
+		function checkEmail(){
+			var email = $("#email").val();
+			//不为空
+			if("" == email||email == null){
+				$("#email").shake(2, 10, 400);
+				$("#email").css({'border-color':'#FF6666'});
+				return false;
+			}
+			//验证格式
+			var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+			if(reg.test(email)){
+				$("#email").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}else{
+				$("#email").shake(2, 10, 400);
+				$("#email").css({'border-color':'#FF6666'});
+				return false;
+			}
+		}
+		function submitForm(){
+			if(checkUsername() && checkPassword() && checkPassword2() && checkEmail()){
+				//提交注册表单
+				var username = $("#username").val();
+				var password = $("#password").val();
+				var email = $("#email").val();
+				var status = "admin";
+				document.location.href="/HomeEducationPlatform/home/registerAdmin?username="+name+"&password="+password+"&email="+email+"&status="+status;
+				//提示注册成功
+				$("#regisuccess").show();
+                setTimeout(function(){
+                    $("#regisuccess").hide();
+                },1500);
+				return true;
+			}else{
+				//提示注册失败
+				$("#regifail").show();
+                setTimeout(function(){
+                    $("#regifail").hide();
+                },1500);
+				return false;
+			}
+		}
+		</script>
+	</body>
+
+</html>

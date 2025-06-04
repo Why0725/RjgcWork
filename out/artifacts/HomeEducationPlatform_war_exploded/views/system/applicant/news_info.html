@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	  	<title>新闻详情</title>
+	  	<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+	  	<!-- Custom Main StyleSheet CSS -->
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/style.css" rel="stylesheet">
+	  	<!-- Color CSS -->
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/color.css" rel="stylesheet">
+	  	<!-- Responsive CSS -->
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/responsive.css" rel="stylesheet">
+		<!--<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">-->
+		<style>
+		/*header style start*/
+			.header {
+				margin-top: 20px;
+				height: 90px;
+				border-bottom: 5px solid rgba(229, 229, 229,0.5);
+			}
+			.header_row {
+				margin: 0px;
+			}
+			.title,.id,.time {
+				font-size: 15px;
+				font-weight: 500;
+			}
+			.status {
+				border-radius: 10px;
+				/*background: rgb(204, 204, 204);*/
+				background: #CCCCCC;
+				color: red;
+				padding; 2px;
+			}
+			.header_line_row {
+				height: 32px;
+				line-height: 32px;
+				vertical-align: middle;
+			}
+			.header_line_row2 {
+				height: 60px;
+				line-height: 60px;
+				vertical-align: middle;
+			}
+			.right {
+				text-align: right;
+			}
+		/*header style end*/
+		/*content style start*/
+			.content .row {
+				margin-left: 0px;
+			}
+			.content {
+				margin-top: 20px;
+			}
+			.title2 {
+				font-size: 15px;
+			}
+			.content_list_first {
+				margin-top: 40px;
+			}
+			.content_list .row .col-md-6,.content_list .row .col-md-12 {
+				padding: 0px;
+				font-size: 15px;
+				height: 30px;
+				line-height: 30px;
+				vertical-align: middle;
+				letter-spacing: 1px;
+			}
+			.teah_require {
+				margin-top: 30px;
+			}
+		/*content style end*/
+		/*footer style START*/
+			.footer .row {
+				margin: 0px !important;
+			}
+			.footer {
+				margin-top: 100px;
+				/*background: rgb(72, 75, 80);*/
+				font-size: 14px;
+				background: #000;
+				height: 180px;
+			/*	color: rgb(161, 162, 164);*/
+				color: #666666;
+				padding-top: 40px;
+			}
+			.footer_list_row {
+				height: 30px;
+				line-height: 30px;
+				vertical-align: middle;
+			}
+			.footer_list_title {
+				font-size: 17px;
+			}
+			.phone {
+				font-size: 27px;
+				color: rgb(40, 183, 121);
+			}
+			.footer_list {
+				border: none;
+			}
+			.footer .row {
+				text-align: center;
+			}
+		/*footer style END*/
+		/*申请按钮 style start*/
+			.btn_row {
+				margin-left: 0px;
+				margin-top: 100px;
+				text-align: center;
+			}
+			.apply_btn {
+				background: rgb(45, 204, 112);
+				border-radius: 19px;
+				font-size: 15px;
+				font-weight: 600;
+				color: #fff;
+				letter-spacing: 3px;
+				width: 18%;
+				height: 43px;
+			}
+		/*申请按钮 style end*/
+		
+		/*评价*/
+		#cont {
+	  			margin-top: 50px;
+	  		}
+	  		.btn {
+	  			margin-right: 20px;
+	  			margin-top: 10px;
+	  		}
+	  		ul,li {
+	  			list-style:none; 
+	  		}
+	  		.liuyanlist{
+	  			padding-left: 0px !important;
+	  		}
+	  		.liuyanlist li {
+	  			padding-top: 20px;
+	  			padding-bottom: 20px;
+	  			border-bottom: 1px solid #CCCCCC;
+	  		}
+	  		#date {
+	  			color: rgb(51, 122, 183);
+	  		}
+		
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- header START -->
+			<div class="header">
+				<div class="row header_row">
+					<div class="col-md-6 col-sm-6">
+						<div class="row header_line_row"> <span class="title" id="title"></span> </div>
+						<div class="row header_line_row"> <span>点击次数：</span><span class="status" id="clicknum"></span> </div>					
+					</div>
+					<div class="col-md-6 col-sm-6 right">
+						<div class="row header_line_row2">
+							<div class="col-md-4 col-sm-4"> <span>ID：</span><span class="id" id="id"></span></div>
+							<div class="col-md-8 col-sm-8"><span>发布时间：</span><span class="time" id="createtime"></span></div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- header END -->
+			<!-- Content START -->
+			<div class="content" style="position: relative;">
+				<!-- 学员信息 START -->
+				<div class="stu_info">
+					<div class="row"> <span class="title2" id="content"></span></div>
+				</div>
+			</div>		
+		</div>
+		<!-- Container END -->
+		<!-- footer START -->
+		<div class="footer">
+	    	<div class="row">
+	    		<!--第一列 START-->
+	    		<div class="col-md-3 col-sm-3 footer_list">
+	    			<div class="row footer_list_row footer_list_title"> <span>服务热线</span> </div>
+	    			<div class="row footer_list_row"> <span>(工作日9:00 ~ 18:00)</span> </div>
+	    			<div class="row footer_list_row"> <span class="phone">vx：mtyeducation</span> </div>
+	    		</div>
+	    		<!--第一列 END-->
+	    		<!--第二列 START-->
+	    		<div class="col-md-6 col-sm-6">
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>会员指南</span> </div>
+		    			<div class="row footer_list_row"> <span>我是教员</span> </div>
+		    			<div class="row footer_list_row"> <span>我是学员</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>网站导航</span> </div>
+		    			<div class="row footer_list_row"> <span>帮助中心</span> </div>
+		    			<div class="row footer_list_row"> <span>服务城市</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>简介</span> </div>
+		    			<div class="row footer_list_row"> <span>关于我们</span> </div>
+		    			<div class="row footer_list_row"> <span>服务声明</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>合作</span> </div>
+		    			<div class="row footer_list_row"> <span>友情链接</span> </div>
+	    			</div>
+	    		</div>
+	    		<!--第二列 END-->
+	    		<!--第三列 START-->
+	    		<div class="col-md-3 col-sm-3 footer_list">
+	    			<div class="row footer_list_row footer_list_title"> <span>关注微信</span> </div>
+	    			<div class="row footer_list_row"> <img style="width: 70px;height: 70px;" src="/HomeEducationPlatform/static/system/applicant/img/QRcode.png"> </div>
+	    		</div>
+	    		<!--第三列 END-->
+	    	</div>
+	    </div>
+		<!-- footer END -->
+		
+		<!--Jquery Library-->
+		<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+		<!--Bootstrap core JavaScript-->
+		<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.js"></script>
+	</body>
+	<script type="text/javascript">
+		var url = location.search;
+		console.log(url);
+		var id = url.split("=")[1];
+		console.log(id);
+		
+		$.ajax({
+			url: '/HomeEducationPlatform/home/getTnewsById',
+			type: 'POST',
+			dataType: 'json',
+			data: {"id":id},
+			}).done(function(data) {
+				$("#title").text(data.title);
+				$("#id").text(id);
+				$("#createtime").text(data.createtime);
+				$("#clicknum").text(data.clicknum);
+				$("#content").text(data.content);
+				
+	        }).fail(function() {
+				console.log("错误");
+	        	setTimeout("",400);
+	        });
+	</script>
+</html>

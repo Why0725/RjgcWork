@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	  	<title>留言</title>
+	  	<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/style.css" rel="stylesheet">
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/color.css" rel="stylesheet">
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/responsive.css" rel="stylesheet">
+	  		
+	  	<!--<link href="../../../static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+	  	<link href="../../../static/system/applicant/css/style.css" rel="stylesheet">
+	  	<link href="../../../static/system/applicant/css/color.css" rel="stylesheet">
+	  	<link href="../../../static/system/applicant/css/responsive.css" rel="stylesheet">
+	  	-->
+	  	<style>
+	  		#cont {
+	  			margin-top: 50px;
+	  		}
+	  		.btn {
+	  			margin-right: 20px;
+	  			margin-top: 10px;
+	  		}
+	  		ul,li {
+	  			list-style:none; 
+	  		}
+	  		.liuyanlist{
+	  			padding-left: 0px !important;
+	  		}
+	  		.liuyanlist li {
+	  			padding-top: 20px;
+	  			padding-bottom: 20px;
+	  			border-bottom: 1px solid #CCCCCC;
+	  		}
+	  		#date {
+	  			color: rgb(51, 122, 183);
+	  		}
+	  	</style>
+	</head>
+	<body>
+		<div class="container" id="cont">
+			<!--留言填写-->
+			<textarea class="form-control" id="noticeContent"></textarea>
+			<div class="row" style="text-align: right;">
+				<button type="button" class="btn btn-info">提交</button>
+			</div>
+			<!--//留言填写-->
+			<!--留言列表-->
+			<ul class="liuyanlist">
+				<li>
+					<p> <a>用户1</a>&nbsp;&nbsp;&nbsp;&nbsp;<span id="date">2018-5-1</span> </p>
+					留言一
+				</li>
+				<li>
+					<p> <a>用户1</a>&nbsp;&nbsp;&nbsp;&nbsp;<span id="date">2018-5-1</span> </p>
+					留言二
+				</li>
+				<li>
+					<p> <a>用户1</a>&nbsp;&nbsp;&nbsp;&nbsp;<span id="date">2018-5-1</span> </p>
+					留言三
+				</li>
+			</ul>
+			<!--//留言列表-->
+			<!--分页-->
+			<div class="row" style="text-align: center;">
+				<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
+			</div>
+			
+			<!--//分页-->
+		</div>
+		
+		
+		<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		  
+		<!--<script src="../../../static/modules/plugin/jquery/jquery.min.js"></script>
+		<script src="../../../static/modules/plugin/bootstrap/bootstrap.min.js"></script>-->
+	</body>
+</html>

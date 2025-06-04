@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.TnoticeDAO">
+
+	
+	<!-- 获取公示信息-->
+	<select id="geTnotices" resultType="com.education.entity.Tnotice">
+		select * from tnotice where flag = 1 order by createtime DESC
+	</select>
+	<!-- 通过用户id 删除公示 -->
+	<delete id="delNotice" parameterType="java.lang.Long">
+		delete from tnotice where id = #{id}
+	</delete>
+	
+	<insert id="addNotice" parameterType="com.education.entity.Tnotice">
+		insert into tnotice(title,content,createtime) values(#{title},#{content},#{createtime})
+	</insert>
+	
+</mapper>

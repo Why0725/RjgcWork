@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>学生发布需求</title>
+		<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+		<!-- ui-choose -->
+		<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">
+		<style>
+		/*header style start*/
+			.header {
+				margin: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				/*margin-top: 20px;*/
+				padding-top: 26px;
+				height: 98px;
+				border-bottom: 1px solid rgb(235, 235, 235);
+			}
+			.header .row {
+				height: 42px;
+				line-height: 42px;
+			}
+			.header .row .col-md-2 {
+				padding-right: 0px;
+				height: 42px;
+				letter-spacing: 6px;
+				border-right: 1px solid rgb(206, 205, 205);
+			}
+			.logo {
+				font-size: 28px;
+				font-weight: 500;
+			}
+			.poster {
+				margin-left: 20px;
+				font-size: 23px;
+				font-weight: 500;
+				letter-spacing: 1px;
+			}
+		/*header style end*/
+		/*content style start*/
+			.content {
+				margin-top: 50px;
+			}
+		/*form style start*/
+			form {
+			 	
+			}
+			form .row {
+				height: 80px;
+				/*line-height: 62px;
+				vertical-align: middle;*/
+			}
+			.col-sm-2 label {
+				height: 40px;
+				line-height: 40px;
+			}
+			ul.ui-choose>li {
+				height: 40px;
+				line-height: 40px;
+				border: 1px solid rgb(206, 205, 205);
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+				margin-right: 10px;
+			}
+			ul.ui-choose>li:first-child {
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			ul.ui-choose>li:last-child {
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			ul.ui-choose>li:hover {
+				border-color: rgb(206, 205, 205);
+				color: rgb(51, 51, 51);
+			}
+			ul.ui-choose>li.selected {
+				border-color: rgb(206, 205, 205);
+				color: rgb(45, 204, 112);
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			.row_left {
+				text-align: right;
+				padding-right: 25px;
+			}
+			.row_right {
+				padding-left: 25px;
+			}
+			.row_right .form-control-height {
+				height: 40px;
+			}
+			.row_right input[type=radio] {
+				height: 40px;
+				line-height: 40px;
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+			.labeltext {
+				font-size: 16px;
+				font-weight: normal;
+				/*padding*/
+			}
+			.form-control {
+				border-color: rgb(235, 235, 235);
+				width: 80%;
+			}
+			.radio_label {
+				margin-right: 10px;
+				font-weight: normal;
+			}
+			/*radio style start*/
+    
+			input[type='radio'] {
+				width:18px;
+				height:18px;
+				position:relative;
+				background:transparent;
+				border:0;
+				outline:none;
+				appearance:none;
+				-webkit-appearance:none;
+				-moz-appearance:none;
+				margin: 12px 0 0;
+			}
+			input[type='radio']:before {
+				content:"";
+				position:absolute;
+				width:16px;
+				height:16px;
+				border:1px solid #999;
+				border-radius:100%;
+			}
+			input[type='radio']:checked:before {
+				border:1px solid transparent;
+				background:#5ECD62;
+			}
+			
+			input[type='radio']:checked:after {
+				content:"";
+				position:absolute;
+				top:3px;
+				left:3px;
+				border:2px solid #fff;
+				border-radius:100%;
+				width:10px;
+				height:10px;
+				background:#5ECD62;
+			}
+			.radio_label {
+				position: relative;
+				top: -5px;
+			}
+			input[type="radio"],input[type="radio"]:hover,input[type="radio"]:checked{
+				border: none !important;
+				outline:none !important;
+			}
+			/*radio style end*/
+			.btn_row {
+				text-align: center;
+				margin-top: 40px;
+			}
+			.btn {
+				width: 30%;
+				height: 48px;
+				color: #fff;
+				font-size: 18px;
+				font-weight: 500;
+				letter-spacing: 2px;
+				background: rgb(45, 204, 112);
+				border-radius: 24px;
+				-moz-border-radius: 24px;
+				-webkit-border-radius: 24px;
+			}
+			.price_input {
+				width: 100px;
+			}
+			.inlinestyle input {
+				display: inline-block;
+			}
+			li {
+				font-size: 15px !important;
+			}
+			.textarea_row {
+				height: 138px !important;
+			}
+		/*form style end*/
+		
+		/*content style end*/
+		</style>
+	</head>
+	<body>
+		
+		<!-- Content START -->
+		<div class="content">
+			<!-- Container START -->
+			<div class="container">
+				<!-- Form START -->
+				<div class="row">
+						<div class="col-md-2 col-sm-2 row_left">
+							<label class="labeltext">ID:</label>
+						</div>
+						<div class="col-md-10 col-sm-10 row_right zchecked on_check">	
+							<span id="id" style="font-size: 20px;color: red;"></span>
+						</div>
+					</div>
+				<div class="row">
+						<div class="col-md-2 col-sm-2 row_left">
+							<label class="labeltext">职位状态:</label>
+						</div>
+						<div class="col-md-10 col-sm-10 row_right zchecked on_check">	
+							<span id="status" style="font-size: 20px;color: red;"></span>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2 col-sm-2 row_left">
+							<label class="labeltext">标题:</label>
+						</div>
+						<div class="col-md-10 col-sm-10 row_right zchecked on_check">	
+							<input type="text" class="form-control form-control-height" name="name" id="name" placeholder="请简洁说明招哪种科目的老师"/>
+						</div>
+					</div>
+					<!-- 第一行身份类型 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 row_left">
+	    					<label class="labeltext">就读阶段</label>
+	    				</div>
+	    				<div class="col-md-10 col-sm-10 row_right">
+							<select class="form-control form-control-height" id="jieduan">
+	    						<option value="小学">小学 </option>
+	    						<option value="初中">初中</option>
+	    						<option value="高中">高中</option>
+	    						<option value="大学">大学</option>
+	    						
+	    					</select>
+						</div>					
+					</div>
+					<!-- 第一行身份类型 END -->
+					<!-- 第二行姓名 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 row_left">
+							<label class="labeltext">地点</label>
+						</div>
+						<div class="col-md-10 col-sm-10 row_right">
+	    				<select class="ui-choose" id="place">
+	                        <option value="不限">不限</option>
+	                        <option value="卧龙">卧龙</option>
+	                        <option value="宛城">宛城</option>
+	                        <option value="邓州">邓州</option>
+	                        <option value="桐柏">桐柏</option>
+	                        <option value="方城">方城</option>
+							<option value="淅川">淅川</option>
+							<option value="镇平">镇平</option>
+							<option value="唐河">唐河</option>
+							<option value="南召">南召</option>
+							<option value="内乡">内乡</option>
+							<option value="新野">新野</option>
+							<option value="社旗">社旗</option>
+							<option value="西峡">西峡</option>
+	                    </select>
+	    			</div>
+					</div>
+				
+					<!-- 第六行联系人 END -->
+					<!-- 第七行联系电话 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 row_left">
+							<label class="labeltext">联系电话</label>
+						</div>
+						<div class="col-md-10 col-sm-10 row_right">
+							<input type="text" class="form-control form-control-height" id="phonenum"/>
+						</div>
+					</div>
+					<!-- 第七行联系电话  END -->
+					
+					
+					<!-- 第十行薪酬标准 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 row_left">
+							<label class="labeltext">薪酬标准</label>
+						</div>
+						<div class="col-md-10 col-sm-10 row_right " style="padding-right: 0;">
+							<input type="text" class="form-control form-control-height" placeholder="请简述工资标准如'100/小时'" id="salary">
+						</div>
+					</div>
+					<!-- 第十行薪酬标准 END -->
+					
+					<!-- 第十四行对教员要求 START -->
+					<div class="row  textarea_row">
+						<div class="col-md-2 col-sm-2 row_left">
+	    					<label class="labeltext">详细信息</label>
+	    				</div>
+	    				<div class="col-md-10 col-sm-10 row_right">
+	    					<textarea type="textarea"  rows="4" cols="20"  id="information" class="form-control input"></textarea>
+	    				</div>
+					</div>
+					<!-- 第十四行对教员要求 END -->
+					<div class="row btn_row">
+						<button type="button" class="btn" onclick="updatePostion()">修改</button>
+					</div>
+					
+				<!-- Form END -->
+			</div>
+			<!-- Container END -->
+		</div>
+		<!-- Content END -->
+		
+		
+		<!--Jquery Library-->
+	    <script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+	    <!--Bootstrap core JavaScript-->
+	    <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<!-- ui-choose -->
+		<script src="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.js"></script>
+		<script type="text/javascript">
+			// 将所有.ui-choose实例化
+			$('.ui-choose').ui_choose();
+			// uc_02 select 单选
+			var uc_02 = $('#uc_02').data('ui-choose');
+			uc_02.click = function(value, item) {
+			    console.log('click', value);
+			};
+			uc_02.change = function(value, item) {
+			    console.log('change', value);
+			};
+		</script>
+		
+		<script type="text/javascript">
+			var url = location.search;
+			console.log(url);
+			var id = url.split("=")[1];
+			console.log(id);
+			$("#id").text(id);
+			$.ajax({
+				url: '/HomeEducationPlatform/parent/getPositionImfoByid',
+				type: 'POST',
+				dataType: 'json',
+				data:{"id":id},
+				}).done(function(data) {
+					
+					$("#name").val(data.name);
+					$("#jieduan").val(data.jieduan);
+					$("#place").val(data.place);
+					$("#salary").val(data.salary);
+					$("#phonenum").val(data.phonenum);
+					$("#information").val(data.information);
+					var status = data.status;
+					if(status == 0){
+						$("#status").text("未审核");
+					}else{
+						$("#status").text("已审核");
+					}
+					
+		        }).fail(function() {
+					console.log("错误");
+		        	setTimeout("",400);
+		        });
+		
+			function updatePostion() {
+				var name = $("#name").val();
+				var jieduan = $("#jieduan").val();
+				var place = $("#place").val();
+				var salary = $("#salary").val();
+				var phonenum = $("#phonenum").val();
+				var information = $("#information").val();
+				var info = jieduan +"-"+information;
+				$.ajax({
+					url: '/HomeEducationPlatform/parent/updatePositionImfoByid',
+					type: 'POST',
+					dataType: 'json',
+					data:{"id":id,"name":name,"place":place,"salary":salary,"phonenum":phonenum,"information":info},
+					}).done(function(data) {
+						
+						var status = data.result;
+						
+						if(status == 0){
+							alert("修改四百");
+						}else{
+							alert("修改成功");
+						}
+						
+			        }).fail(function() {
+						console.log("错误");
+						alert("修改失败");
+			        	setTimeout("",400);
+			        });
+				
+			}
+		
+		</script>
+	</body>
+</html>

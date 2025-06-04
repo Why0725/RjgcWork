@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>简历</title>
+		<!--<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">-->
+		<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+		<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">
+		<style>
+		/*header style start*/
+			.header {
+				margin: 0px;
+				padding-left: 0px;
+				padding-right: 0px;
+				/*margin-top: 20px;*/
+				padding-top: 26px;
+				height: 98px;
+				border-bottom: 1px solid rgb(235, 235, 235);
+			}
+			.header .row {
+				height: 42px;
+				line-height: 42px;
+			}
+			.header .row .col-md-2 {
+				padding-right: 0px;
+				height: 42px;
+				letter-spacing: 6px;
+				border-right: 1px solid rgb(206, 205, 205);
+			}
+			.logo {
+				font-size: 28px;
+				font-weight: 500;
+			}
+			.poster {
+				margin-left: 20px;
+				font-size: 23px;
+				font-weight: 500;
+				letter-spacing: 1px;
+			}
+		/*header style end*/
+		/*content style start*/
+			.content {
+				margin-top: 50px;
+			}
+		/*form style start*/
+			form {
+			 	
+			}
+			form .row {
+				height: 80px;
+				/*line-height: 62px;
+				vertical-align: middle;*/
+			}
+			.col-sm-2 label {
+				height: 40px;
+				line-height: 40px;
+			}
+			ul.ui-choose>li {
+				height: 40px;
+				line-height: 40px;
+				border: 1px solid rgb(206, 205, 205);
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+				margin-right: 10px;
+			}
+			ul.ui-choose>li:first-child {
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			ul.ui-choose>li:last-child {
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			ul.ui-choose>li:hover {
+				border-color: rgb(206, 205, 205);
+				color: rgb(51, 51, 51);
+			}
+			ul.ui-choose>li.selected {
+				border-color: rgb(206, 205, 205);
+				color: rgb(45, 204, 112);
+				border-radius: 20px;
+				-moz-border-radius: 20px;
+				-webkit-border-radius: 20px;
+			}
+			.row_left {
+				text-align: right;
+				padding-right: 25px;
+			}
+			.row_right {
+				padding-left: 25px;
+			}
+			.row_right .form-control-height {
+				height: 40px;
+			}
+			.row_right input[type=radio] {
+				height: 40px;
+				line-height: 40px;
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+			.labeltext {
+				font-size: 16px;
+				font-weight: normal;
+				/*padding*/
+			}
+			.form-control {
+				border-color: rgb(235, 235, 235);
+				width: 85%;
+			}
+			.radio_label {
+				margin-right: 10px;
+				font-weight: normal;
+			}
+			/*radio style start*/
+    
+			input[type='radio'] {
+				width:18px;
+				height:18px;
+				position:relative;
+				background:transparent;
+				border:0;
+				outline:none;
+				appearance:none;
+				-webkit-appearance:none;
+				-moz-appearance:none;
+				margin: 12px 0 0;
+			}
+			input[type='radio']:before {
+				content:"";
+				position:absolute;
+				width:16px;
+				height:16px;
+				border:1px solid #999;
+				border-radius:100%;
+			}
+			input[type='radio']:checked:before {
+				border:1px solid transparent;
+				background:#5ECD62;
+			}
+			
+			input[type='radio']:checked:after {
+				content:"";
+				position:absolute;
+				top:3px;
+				left:3px;
+				border:2px solid #fff;
+				border-radius:100%;
+				width:10px;
+				height:10px;
+				background:#5ECD62;
+			}
+			.radio_label {
+				position: relative;
+				top: -5px;
+			}
+			input[type="radio"],input[type="radio"]:hover,input[type="radio"]:checked{
+				border: none !important;
+				outline:none !important;
+			}
+			/*radio style end*/
+			.btn_row {
+				text-align: center;
+				margin-top: 40px;
+			}
+			.btn {
+				width: 30%;
+				height: 48px;
+				color: #fff;
+				font-size: 18px;
+				font-weight: 500;
+				letter-spacing: 2px;
+				background: rgb(45, 204, 112);
+				border-radius: 24px;
+				-moz-border-radius: 24px;
+				-webkit-border-radius: 24px;
+			}
+		/*form style end*/
+		
+		/*content style end*/
+		</style>
+		<script type="text/javascript">
+		function saves(){
+			/*alert("11");*/
+			var subs = new Array();
+			var thissub = "" ;
+			$("input[name='subject']:checked").each(function(){
+				thissub = $(this).next().text();
+				subs.push(thissub);
+			});
+			alert(subs.join(","));
+			$('#myModal').modal('hide');
+			$('#subject').val(subs.join(","));
+		}
+		
+		
+		function updateResume() {
+			var name=$("#name").val();
+			var sex=$("input[name='sex']:checked").val();
+			var birthday=$("#birthday").val();
+			var phonenum=$("#phonenum").val();
+			var email=$("#email").val();
+			var schoolname=$("#schoolname").val();
+			var time=$("#time").val();
+			var education=$("#education").val();
+			var major=$("#major").val();
+			var experience=$("#experience").val();
+			var place=$("#place").val();
+			var subject=$("#subject").val();
+		
+			var jobintension = place + "-"+ subject;
+			
+			if(name==""){
+				alert("请填写姓名");
+				return
+			}
+			if(sex==""){
+				alert("请选择性别");
+				return
+			}
+			if(birthday==""){
+				alert("请选择出生日期");
+				return
+			}
+			if(phonenum==""){
+				alert("请填写联系电话");
+				return
+			}
+			if(subject==""){
+				alert("请选择授课科目");
+				return
+			}
+			if(schoolname==""){
+				alert("请填写就读学校");
+				return
+			}
+			if(major==""){
+				alert("请填写所在专业");
+				return
+			}
+			if(time==""){
+				alert("请选择入学时间");
+				return
+			}
+			if(experience==""){
+				alert("请填写工作经验");
+				return
+			}
+			
+			$.ajax({
+				url: '/HomeEducationPlatform/teacher/addResume',
+				type: 'POST',
+				dataType: 'json',
+				data:{"name":name,"sex":sex,"birthday":birthday,"phonenum":phonenum,"email":email,"schoolname":schoolname,"time":time,"education":education,"major":major,"experience":experience,"jobintension":jobintension},
+				}).done(function(data) {
+					
+				if(data.result == 1){
+					document.location.href="index";
+				}
+					
+		        }).fail(function() {
+					console.log("错误");
+		        	setTimeout("",400);
+		        });
+		}
+		</script>
+	</head>
+	<body>
+		<!-- Header START-->
+		<div class="header">
+			<!-- Container START -->
+			<div class="container">
+				<!-- row START -->
+				<div class="row">
+					<div class="col-md-2 col-sm-2">
+						<span class="logo">家教平台</span>
+					</div>
+					<div class="col-md-10 col-sm-10">
+						<span class="poster">完善简历&nbsp;展现出优秀的自己</span>
+					</div>
+				</div>
+				<!-- row END -->
+			</div>
+			<!-- Container END -->
+		</div>
+		<!-- Header END-->
+		<!-- Content START -->
+		<div class="content">
+			<!-- Container START -->
+			<div class="container">
+				<!-- Form START -->
+				<form>
+					<!-- 第二行姓名 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+	    					<label class="labeltext">姓名</label>
+	    				</div>
+	    				<div class="col-md-4 col-sm-4 row_right">
+	    					<input type="text" id="name" class="form-control form-control-height" placeholder="2-4位中文" onblur="checkName()"/>
+	    				</div>
+					</div>
+					<!-- 第二行姓名 END -->
+					<!-- 第三行性别 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">性别</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right zchecked on_check">
+							<input type="radio" class="radioclass" name="sex" id="man" value="0" checked="checked"/><label class="radio_label">男</label>
+							<input type="radio" class="radioclass" name="sex" id="woman" value="1"/><label class="radio_label">女</label>
+						</div>
+					</div>
+					<!-- 第三行性别 END -->
+					<!-- 第三行出生日期 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">出生日期</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<input type="date" id="birthday" class="form-control form-control-height" onblur="checkBirthday()"/>
+						</div>
+					</div>
+					<!-- 第三行出生日期 END -->
+					<!--联系电话 START-->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">联系电话</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<input type="text" id="phonenum" class="form-control form-control-height" />
+						</div>
+					</div>
+					<!--联系电话 END-->
+					<!--邮箱 START-->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">邮箱</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<input type="email" id="email" class="form-control form-control-height" />
+						</div>
+					</div>
+					<!--邮箱 END-->
+					<!-- 授课科目 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+	    					<label class="labeltext">授课科目</label>
+	    				</div>
+	    				<div class="col-md-4 col-sm-4 row_right">
+	    					<input id="subject" data-toggle="modal" data-target="#myModal" type="text" class="form-control form-control-height" id="kemu"/>
+	    				</div>
+					</div>
+					<!-- 授课科目 END -->
+					<!-- 第四行住址区域 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">教授区域</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<select class="form-control form-control-height" id="place">
+	    						<option value="不限" selected="selected">不限</option>
+		                        <option value="卧龙">卧龙</option>
+		                        <option value="宛城">宛城</option>
+		                        <option value="邓州">邓州</option>
+		                        <option value="桐柏">桐柏</option>
+		                        <option value="方城">方城</option>
+								<option value="淅川">淅川</option>
+								<option value="镇平">镇平</option>
+								<option value="唐河">唐河</option>
+								<option value="南召">南召</option>
+								<option value="内乡">内乡</option>
+								<option value="新野">新野</option>
+								<option value="社旗">社旗</option>
+								<option value="西峡">西峡</option>
+	    					</select>
+						</div>
+					</div>
+					<!-- 第四行住址区域  END -->
+					
+					<!-- 第五行大概住址 END -->
+					<!-- 第六行最高学历 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">最高学历</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<select class="form-control form-control-height" id="education">
+	    						<option value="专科" selected="selected">专科</option>
+	    						<option value="本科">本科</option>
+	    						<option value="硕士">硕士</option>
+	    						<option value="其他">其他</option>
+	    					</select>
+						</div>
+					</div>
+					<!-- 第六行最高学历 END -->
+					<!-- 第七行就读学校 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">就读学校</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<input type="text" id="schoolname"class="form-control form-control-height" />
+						</div>
+					</div>
+					<!-- 第七行就读学校 END -->
+					<!--所在专业 START-->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">所在专业</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<input type="text" id="major" class="form-control form-control-height" />
+						</div>
+					</div>
+					<!--所在专业 END-->
+					<!-- 入学时间 START -->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">入学时间</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<input type="date" id="time" class="form-control form-control-height" />
+						</div>
+					</div>
+					<!--  入学时间 END -->
+					<!--工作经验 START-->
+					<div class="row">
+						<div class="col-md-2 col-sm-2 col-md-offset-3 col-sm-offset-3 row_left">
+							<label class="labeltext">工作经验</label>
+						</div>
+						<div class="col-md-4 col-sm-4 row_right">
+							<textarea type="textarea"  id="experience" rows="4" cols="20" name="information" class="form-control input"></textarea>
+						</div>
+					</div>
+					<!--工作经验 ENDT-->
+					<div class="row btn_row">
+						<button type="button" class="btn" onclick="updateResume()">保存</button>
+					</div>
+				</form>
+				<!-- Form END -->
+			</div>
+			<!-- Container END -->
+		</div>
+		<!-- Content END -->
+		
+		
+		<!--授课科目大弹框 START-->
+		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+		                <h4 class="modal-title" id="myModalLabel">授课科目</h4>
+		            </div>
+		            <div class="modal-body">
+		            	<!--一年级-->
+		            	<!--<span>一年级</span><hr />-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学一年级语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学一年级数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学一年级英语</span></label>
+		            	<hr />
+		            	<!--二年级-->
+						<label><input type="checkbox" name="subject" value="" /><span>小学二年级语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学二年级数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学二年级英语</span></label>
+		            	<hr />
+		            	<!--三年级-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学三年级语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学三年级数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学三年级英语</span></label>
+		            	<hr />
+		            	<!--四年级-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学四年级语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学四年级数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学四年级英语</span></label>
+		            	<hr />
+		            	<!--五年级-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学四年级语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学四年级数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学四年级英语</span></label>
+		            	<hr />
+		            	<!--六年级-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学六年级语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学六年级数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>小学六年级英语</span></label>
+		            	<hr />
+		            	<!--初一-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初一语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初一数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初一英语</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初一物理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初一化学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初一生物</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初一历史</span></label>
+		            	<hr />
+		           		<!--初二-->
+		           		<label><input type="checkbox" name="subject" value="" /><span>初中初二语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初二数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初二英语</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初二物理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初二化学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初二生物</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初二历史</span></label>
+		            	<hr />
+		            	<!--初三-->
+		           		<label><input type="checkbox" name="subject" value="" /><span>初中初三语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初三数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初三英语</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初三物理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初三化学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初三生物</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>初中初三历史</span></label>
+		            	<hr />
+		            	<!--高一-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一英语</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一物理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一化学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一生物</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一地理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一历史</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高一政治</span></label>
+		            	<hr />
+		            	<!--高二-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二英语</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二物理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二化学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二生物</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二地理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二历史</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高二政治</span></label>
+		            	<hr />
+		            	<!--高三-->
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三语文</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三数学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三英语</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三物理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三化学</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三生物</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三地理</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三历史</span></label>
+		            	<label><input type="checkbox" name="subject" value="" /><span>高中高三政治</span></label>
+		            </div>
+		            <div class="modal-footer">
+		            	<button type="button" id="save" class="btn btn-primary" onclick="saves()">确认提交</button>
+		                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+		            </div>
+		        </div><!-- /.modal-content -->
+		    </div><!-- /.modal -->
+		</div>
+		<!--授课科目大弹框 END-->
+		
+		
+		
+		
+	   <!-- <script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+	    <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/shake/shake.js" type="text/javascript"></script>-->
+		<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+	    <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/shake/shake.js" type="text/javascript"></script>
+		
+		<script type="text/javascript">
+			//验证姓名 name
+			function checkName(){
+				var name = $("#name").val();
+				//不为空
+				if("" == name||name == null){
+					$("#name").shake(2, 10, 400);
+					$("#name").css({'border-color':'#FF6666'});
+					return false;
+				}
+				//验证格式(2-4位中文)	
+				var reg = /^[\u4e00-\u9fff]{2,4}$/;
+				if(reg.test(name)){
+					//alert("right");
+					$("#name").css({'border-color':'rgb(204, 204, 204)'});
+					return true;
+				}else{
+					//alert("wrong");
+					$("#name").shake(2, 10, 400);
+					$("#name").css({'border-color':'#FF6666'});
+					return false;
+				}
+			}
+			//性别
+			//出生日期 birthday
+			function checkBirthday(){
+				var birthday = $("#birthday").val();
+				//不为空
+				if("" == birthday||birthday == null){
+					$("#birthday").shake(2, 10, 400);
+					$("#birthday").css({'border-color':'#FF6666'});
+					return false;
+				}
+				$("#birthday").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}
+			//联系电话 phonenum
+			function checkPhonenum(){
+				var phonenum = $("#phonenum").val();
+				//不能为空
+				if("" == phonenum||phonenum == null){
+					$("#phonenum").shake(2, 10, 400);
+					$("#phonenum").css({'border-color':'#FF6666'});
+					return false; 
+				}
+				//验证格式
+				var reg = ((\d{11})|^((\d{7,8})|(\d{4}|\d{3})-(\d{7,8})|(\d{4}|\d{3})-(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1})|(\d{7,8})-(\d{4}|\d{3}|\d{2}|\d{1}))$);
+				if(reg.test(contact)){
+					$("#phonenum").css({'border-color':'rgb(204, 204, 204)'});
+					return true;
+				}else{
+					$("#phonenum").shake(2, 10, 400);
+					$("#phonenum").css({'border-color':'#FF6666'});
+					return false;
+				}
+			}
+			//邮箱 email
+			function checkEmail(){
+			var email = $("#email").val();
+				//不为空
+				if("" == email||email == null){
+					$("#email").shake(2, 10, 400);
+					$("#email").css({'border-color':'#FF6666'});
+					return false;
+				}
+				//验证格式
+				var reg = /^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/;
+				if(reg.test(email)){
+					$("#email").css({'border-color':'rgb(204, 204, 204)'});
+					return true;
+				}else{
+					$("#email").shake(2, 10, 400);
+					$("#email").css({'border-color':'#FF6666'});
+					return false;
+				}
+			}
+
+			//授课科目 subject
+			function checkSubject(){
+				var subject = $("#subject").val();
+				if("" == subject||subject == null){
+					$("#subject").shake(2, 10, 400);
+					$("#subject").css({'border-color':'#FF6666'});
+					return false;
+				}
+				$("#subject").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}
+			//教授区域 place
+			//最高学历 education
+			//就读学校 schoolname
+			function checkSchoolname(){
+				var schoolname = $("#schoolname").val();
+				//不为空
+				if("" == schoolname||schoolname == null){
+					$("#schoolname").shake(2, 10, 400);
+					$("#schoolname").css({'border-color':'#FF6666'});
+					return false;
+				}
+				$("#schoolname").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}
+			//所在专业 major
+			function checkMajor(){
+				var major = $("#major").val();
+				//不为空
+				if("" == major||major == null){
+					$("#major").shake(2, 10, 400);
+					$("#major").css({'border-color':'#FF6666'});
+					return false;
+				}
+				$("#major").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}
+			//入学时间 time
+			function checkTime(){
+				var birthday = $("#time").val();
+				//不为空
+				if("" == time||time == null){
+					$("#time").shake(2, 10, 400);
+					$("#time").css({'border-color':'#FF6666'});
+					return false;
+				}
+				$("#time").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}
+			//工作经验 experience
+			function checkExperience(){
+				var major = $("#experience").val();
+				//不为空
+				if("" == experience||experience == null){
+					$("#experience").shake(2, 10, 400);
+					$("#experience").css({'border-color':'#FF6666'});
+					return false;
+				}
+				$("#experience").css({'border-color':'rgb(204, 204, 204)'});
+				return true;
+			}
+		
+		
+		</script>
+	</body>
+</html>

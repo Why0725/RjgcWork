@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.TnewsDAO">
+
+	
+	<!-- 获取新闻信息 以先以点击量顺序排序，之后是以 时间顺序排序-->
+	<select id="geTnews" resultType="com.education.entity.Tnews">
+		select * from tnews where flag = 1 order by clicknum DESC,createtime DESC
+	</select>
+	<select id="getTnewByID" resultType="com.education.entity.Tnews">
+	
+		select * from tnews where id = #{id} and flag = 1
+	</select>
+	
+	<!-- 通过用户id 删除新闻 -->
+	<delete id="deleteNews" parameterType="java.lang.Long">
+		delete from tnews where id = #{id}
+	</delete>
+	
+	<insert id="insertNews" parameterType="com.education.entity.Tnews">
+		insert into tnews(title,content,createtime) values(#{title},#{content},#{createtime})
+	</insert>
+	
+	<update id="updateClicknum" parameterType="java.lang.Long">
+		update tnews set clicknum = clicknum+1  where id=#{id}
+	</update>
+	
+</mapper>

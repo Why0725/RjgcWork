@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>长春家教平台</title>
+		<!--<link href="../../../static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+ 		<link href="../../../static/system/applicant/css/style.css" rel="stylesheet">
+  		<link href="../../../static/system/applicant/css/color.css" rel="stylesheet">
+ 		<link href="../../../static/system/applicant/css/responsive.css" rel="stylesheet">
+ 		<link href="../../../static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet">-->
+		<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet" />
+		<link href="/HomeEducationPlatform/static/system/applicant/css/style.css" rel="stylesheet">
+		<link href="/HomeEducationPlatform/static/system/applicant/css/color.css" rel="stylesheet">
+		<link href="/HomeEducationPlatform/static/system/applicant/css/responsive.css" rel="stylesheet">
+		<link href="/HomeEducationPlatform/static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+		<style>
+			/* */
+			
+			a,
+			a:link,
+			a:hover,
+			a:active,
+			a:focus,
+			a:visited {
+				text-decoration: none;
+			}
+			/**/
+			
+			.header {
+				/*padding: 0px !important;*/
+				margin: 0px auto;
+			}
+			
+			.gt_menu_bg {
+				height: 60px;
+			}
+			
+			.menutitle {
+				width: 120px !important;
+				text-align: center;
+			}
+			
+			.menutitle>a {
+				letter-spacing: 2px;
+			}
+			
+			.menutitle ul li {
+				width: 60%;
+			}
+			
+			.gt_top_wrap {
+				height: 38px;
+			}
+			
+			.addr {
+				padding-left: 0px;
+			}
+			
+			.gt_copyright_wrap {
+				background: rgb(22, 23, 28);
+			}
+			
+			.selectbox {
+				width: 300px;
+				/*height:*/
+			}
+			
+			.boxtitle {
+				width: 300px;
+				height: 60px;
+				line-height: 60px;
+				vertical-align: middle;
+				text-align: center;
+				background: rgb(45, 204, 112);
+				color: #fff;
+				letter-spacing: 2px;
+				font-weight: 500;
+			}
+			
+			.boxbody {
+				/*border: 1px solid #CCCCCC;*/
+				padding: 20px 10px;
+				background-color: #fff;
+			}
+			
+			.search_btn {
+				width: 100%;
+				height: 40px;
+				/*line-height: 40px;*/
+				vertical-align: middle;
+				color: #fff;
+				font-size: 15px;
+				letter-spacing: 5px;
+				background: rgb(45, 204, 112);
+				border-radius: 0px;
+			}
+			
+			.row {
+				margin-bottom: 15px;
+			}
+			
+			.col-md-8 select {
+				width: 185px;
+				position: relative;
+				left: -15px;
+			}
+			
+			.inplabel {
+				font-size: 15px;
+				letter-spacing: 1px;
+				font-weight: 400;
+				height: 34px;
+				line-height: 34px;
+				vertical-align: middle;
+			}
+			
+			.form-control {
+				border-radius: 0px;
+				border: 1px solid rgb(234, 234, 234);
+			}
+			
+			.content {
+				padding-top: 127px;
+				padding-bottom: 35px;
+				/*background-image: url(../../../static/system/applicant/img/teacher.jpg);*/
+				/*width: 80%;*/
+				background-color: rgb(230, 239, 246);
+			}
+			/*导航栏状态类*/
+			
+			#navbarmenu li {
+				background-color: rgb(22, 23, 28);
+			}
+			
+			.light {
+				background-color: #2dcc70;
+			}
+			
+			.normal {
+				background-color: rgb(22, 23, 28);
+			}
+			/*登录模态框样式*/
+			
+			.modal-header,
+			.modal-footer {
+				border: 0;
+			}
+			
+			a,
+			i,
+			button {
+				outline: none !important;
+			}
+			
+			.modal-header {
+				text-align: center;
+				letter-spacing: 20px;
+			}
+			
+			.modal-title {
+				font-size: 25px;
+			}
+			
+			.modal-input {
+				width: 100%;
+			}
+			
+			#loginModal .container {
+				margin-right: 0;
+				width: 598px;
+			}
+			
+			#loginModal .row {
+				width: 100%;
+			}
+			
+			.modal-body {
+				padding-bottom: 0;
+			}
+			
+			.modal-footer {
+				padding-top: 0;
+				text-align: center;
+				padding-bottom: 50px;
+			}
+			
+			.login_btn {
+				background-color: rgb(45, 204, 112);
+				color: #fff;
+				font-size: 15px;
+				letter-spacing: 3px;
+				width: 60%;
+				height: 42px;
+			}
+			
+			.fa-user,
+			.fa-key {
+				color: rgb(153, 153, 153);
+				font-size: 20px;
+			}
+			
+			.input-group button,
+			.inputgroup input {
+				border-color: rgb(234, 234, 234);
+			}
+			
+			.forgetpsd {
+				/*color: rgb(45, 204, 112);*/
+			}
+			/**/
+		</style>
+	</head>
+
+	<body>
+		<!--gt Wrapper Start-->
+		<div class="gt_wrapper">
+			<!--Header Wrap Start-->
+			<header>
+				<div class="gt_top_wrap gt_bg_3 default_width">
+					<div class="container header">
+						<div class="gt_top_element">
+							<ul class="addr">
+								<li><i class="fa fa-map-marker"></i>
+									<a href="#">长春</a>
+								</li>
+							</ul>
+						</div>
+						<div class="gt_login_element">
+							<span id="loginbox">
+              	<i class="icon-lock"></i><a href="" data-toggle="modal" data-target="#loginModal" style='padding-right: 0;'>登录</a><span style="color: #fff;"> &#38; </span>
+							<a href="/HomeEducationPlatform/home/register" style='padding-left: 0;'>注册</a>
+							</span>
+							<span id="logoutbox" style="display: none;">
+           						
+           						<button onclick="loginout()" class="btn btn-success">退出</button>
+           					</span>
+						</div>
+					</div>
+				</div>
+				<div class="gt_menu_bg default_width">
+					<div class="container">
+						<!--Logo Start-->
+<!--						<div class="gt_logo">-->
+<!--							<a href="#"><img src="/HomeEducationPlatform/static/system/applicant/img/logo.png" alt=""></a>-->
+<!--						</div>-->
+						<!--Logo End-->
+
+						<!--Search Wrap Start-->
+						<div class="gt_search_wrap">
+							<!-- <span class="search-fld"><i class="fa fa-search"></i></span>
+							<div class="search-wrapper-area">
+								<form class="search-area">
+									<input type="text" placeholder="Search Here" />
+									<input type="submit" value="Go" />
+								</form>
+								<span class="gt_search_remove_btn"><i class="fa fa-remove"></i></span>
+							</div> -->
+						</div>
+						<!--Search Wrap End-->
+						<!--导航栏 Start-->
+						<nav class="gt_navigation" id="navbar">
+							<button class="gt_mobile_menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+							<ul class="navbarmenu" id="navbarmenu">
+								<li class="active menutitle">
+									<a class="menuItem" href="/HomeEducationPlatform/views/system/applicant/page1.html">长春家教</a>
+								</li>
+								<li class="menutitle">
+									<a class="menuItem" href="/HomeEducationPlatform/views/system/applicant/price.html">家教价格</a>
+								</li>
+								<li class="menutitle">
+									<a class="menuItem" href="/HomeEducationPlatform/views/system/applicant/teachers.html">老师库</a>
+								</li>
+								<li class="menutitle">
+									<a class="menuItem" href="/HomeEducationPlatform/views/system/applicant/students.html">学员库</a>
+								</li>
+								<li class="menutitle">
+									<a class="menuItem" href="/HomeEducationPlatform/views/system/applicant/news.html">新闻</a>
+								</li>
+								<!--教员登录显示教员个人中心-->
+								<li id="studentPerson" class="menutitle" style="display:none">
+									<a class="menuItem" href="/HomeEducationPlatform/views/system/applicant/student_PersonCenter.html">个人中心</a>
+								</li>
+								<!-- studentPerson -->
+								<!--学员登录显示学员个人中心-->
+								<li id="teacherPerson" class="menutitle" style="display:none">
+									<a class="menuItem" href="/HomeEducationPlatform/views/system/applicant/teacher_PersonCenter.html">个人中心</a>
+								</li>
+							</ul>
+						</nav>
+						<!--导航栏 End-->
+					</div>
+				</div>
+			</header>
+
+			<iframe src="/HomeEducationPlatform/views/system/applicant/page1.html" id="iframe-main" frameborder='0' style="width:100%;"></iframe>
+		</div>
+
+		<!--登录模态框 START-->
+		<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times-circle"></i></button>
+						<!--times;-->
+						<h4 class="modal-title" id="loginModalLabel">登录</h4>
+					</div>
+					<div class="modal-body">
+						<div class="container">
+							<!--row START-->
+							<div class="row">
+								<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+									<div class="input-group input-group-lg">
+										<span class="input-group-btn">
+													<button class="btn btn-default" type="button">
+														<i class="fa fa-user"></i>
+													</button>
+												</span>
+										<input type="text" class="form-control modal-input" style="width: 100%;" id="username">
+									</div>
+									<!-- /input-group -->
+								</div>
+							</div>
+							<!--row END-->
+							<!--row START-->
+							<div class="row">
+								<div class="col-md-8 col-sm-8  col-md-offset-2 col-sm-offset-2">
+									<div class="input-group input-group-lg">
+										<span class="input-group-btn">
+													<button class="btn btn-default" type="button">
+														<i class="fa fa-key"></i>
+													</button>
+												</span>
+										<input type="password" class="form-control modal-input" style="width: 100%;" id="password">
+									</div>
+								</div>
+							</div>
+							<!--row END-->
+							<!--row START-->
+							<div class="row">
+								<div class="col-md-8 col-sm-8  col-md-offset-2 col-sm-offset-2">
+								</div>
+							</div>
+							<!--row END-->
+						</div>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn login_btn" onclick="loginin()">登录</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal -->
+		</div>
+		<!--登录模态框 END-->
+		<!--<span>111</span> -->
+		<!--gt Wrapper End-->
+
+  		<script src="/HomeEducationPlatform/static/system/applicant/js/index.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+		<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<script src="/HomeEducationPlatform/static/system/applicant/js/index.js"></script>
+		
+		<!--<script src="../../../static/system/applicant/js/index.js"></script>
+		<script src="../../../static/modules/plugin/jquery/jquery.min.js"></script>
+		<script src="../../../static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<script src="../../../static/system/applicant/js/index.js"></script>-->
+		
+			
+		<!--Swiper Slider JavaScript-->
+		<script src="js/swiper.jquery.min.js"></script>
+		<!--Owl Carousel JavaScript-->
+		<script src="js/owl.carousel.js"></script>
+		<!--Chosen JavaScript-->
+		<script src="js/chosen.jquery.min.js"></script>
+		<!--Chosen JavaScript-->
+		<script src="js/waypoints-min.js"></script>
+		<!--Pretty Photo JavaScript-->
+		<script src="js/jquery.prettyPhoto.js"></script>
+		<!--Custom JavaScript-->
+		<script type="text/javascript">
+			//初始化相关元素高度
+			function init() {
+				$("body").height($(window).height() - 80);
+				/* alert("body:"+($(window).height())+",iframe:"+($(window).height()));*/
+				$("#iframe-main").height($(window).height() - 90);
+				/*$("#sidebar").height($(window).height()-50);*/
+			}
+			$(function() {
+				init();
+				$(window).resize(function() {
+					init();
+				});
+			});
+			//导航栏切换高亮
+			$(".navbarmenu li").click(function() {
+				$(this).addClass("active")
+			});
+			
+			//声明状态
+			var flag;
+			// 获取状态
+			$.ajax({
+				url: '/HomeEducationPlatform/home/checkFlag',
+				type: 'POST',
+				dataType: 'json',
+			}).done(function(data) {
+				//var result = data.flag;
+				flag = data.flag;
+				statusShow();
+				//alert("此时状态" + result);
+			}).fail(function() {
+				console.log("错误");
+				setTimeout("", 400);
+			});
+	
+			//根据状态显示函数
+			function statusShow() {
+				if(flag == 0) {
+					//未登录===========================
+					$("#loginbox").show(); //登录注册
+					$("#logoutbox").hide(); //退出
+					$("#teacherPerson").hide(); //教员个人中心
+					$("#studentPerson").hide(); //学员个人中心
+				} else if(flag == 1) {
+					//教员登录=========================
+					$("#loginbox").hide(); //登录注册
+					$("#logoutbox").show(); //退出
+					$("#teacherPerson").show(); //教员个人中心
+					$("#studentPerson").hide(); //学员个人中心
+				} else if(flag == 2) {
+					//教员登录========================
+					$("#loginbox").hide(); //登录注册
+					$("#logoutbox").show(); //退出
+					$("#teacherPerson").hide(); //教员个人中心
+					$("#studentPerson").show(); //学员个人中心
+				} else {
+					//返回值错误=========================
+					$("#loginbox").show(); //登录注册
+					$("#logoutbox").hide(); //退出
+					$("#teacherPerson").hide(); //教员个人中心
+					$("#studentPerson").hide(); //学员个人中心
+				}
+			}
+			
+			//登录
+			function loginin() {
+				$.ajax({
+					url: '/HomeEducationPlatform/home/loginIn',
+					type: 'POST',
+					dataType: 'json',
+					data: {
+						"username": $("#username").val(),
+						"password": $("#password").val()
+					},
+				}).done(function(data) {
+					/*var result = data.flag;
+					alert(result);*/
+					flag = data.flag;
+					
+					if(flag != 0) {
+						
+						statusShow();
+						location.reload() 
+					}else{
+						alert("用户名或密码错误")
+					}
+				}).fail(function() {
+					console.log("错误");
+					setTimeout("", 400);
+				});
+			}
+
+			//退出登录
+			function loginout() {
+				$.ajax({
+					url: '/HomeEducationPlatform/home/loginout',
+					type: 'POST',
+					dataType: 'json',
+				}).done(function(data) {
+					/*var result = data.flag;
+					alert(result);*/
+					flag = data.flag;
+					if(flag == 0) {
+						alert("注销成功");
+						
+						statusShow();
+						location.reload() 
+					}
+				}).fail(function() {
+					console.log("错误");
+					setTimeout("", 400);
+				});
+			}
+		</script>
+	</body>
+
+</html>

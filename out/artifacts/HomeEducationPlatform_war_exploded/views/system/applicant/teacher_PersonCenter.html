@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>个人中心|教员</title>
+		<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+		<!-- ui-choose -->
+		<link href="/HomeEducationPlatform/static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+		<link href="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.css" rel="stylesheet">
+		<style>
+			.right {
+				text-align: right;
+			}
+			.left {
+				text-align: left;
+			}
+			/* header style START */
+			.header {
+				height: 270px;
+				border-bottom: 1px solid rgb(235, 235, 235);
+				margin-top: 40px;
+				text-align: center;
+			}
+			.headimg {
+				
+			}
+			.headimg img {
+				width: 104px;
+				height: 104px;
+				border-radius: 52px;
+				-moz-border-radius: 52px;
+				-webkit-border-radius: 52px;
+				border: 2px solid rgb(236, 235, 235);
+				padding: 2px;
+			}
+			#surname {
+				font-size: 20px;
+				font-weight: 600;
+			}
+			.header_row {
+				height: 50px;
+				line-height: 50px;
+				vertical-align: middle;
+			}
+			.header_row2 {
+				height: 15px;
+				line-height: 15px;
+				vertical-align: middle;
+			}
+			.fa-check-circle {
+				color: rgb(45, 204, 112);
+			}
+			/* header style END */
+			/*content style START*/
+			.content {
+				margin-top: 35px;
+			}
+			.content_row {
+				
+			}
+			.content_row_left {
+				padding-left: 20px;
+				padding-right: 20px;
+				border-right: 1px solid rgb(238, 238, 238);
+			}
+			.content_row_right {
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+			.menu2title,.fa-wrench {
+				font-size: 21px;
+				font-weight: 500;
+				letter-spacing: 3px;
+				height: 70px;
+				line-height: 70px;
+				vertical-align: middle;
+			}
+			.menu2text {
+				font-size: 18px;
+				font-weight: bolder;
+				height: 70px;
+				line-height: 70px;
+				vertical-align: middle;
+			}
+			.content_row_left .row,.content_row_right .row  {
+				margin: 0;
+			}
+			.left_row1 {
+				text-align: center;
+				border-bottom: 1px solid rgb(238, 238, 238);
+				margin: 0;
+			}
+			.right_row1 {
+				border-bottom: 1px solid rgb(238, 238, 238);
+				margin: 0;
+			}
+			.line {
+				width: 5px;
+				/*height: 8px;*/
+				background: rgb(45, 204, 112);
+				margin-right: 5px;
+			}
+			.menu_row {
+				height: 50px;
+			}
+			.menu_row .col-md-6 .btn {
+				color: #fff;
+				background: rgb(45, 204, 112);
+				border-radius: 0;
+				height: 35px !important;
+				line-height: 25px;
+			}
+			.row2_title_row {
+				height: 50px;
+				line-height: 50px;
+				vertical-align: middle;
+			}
+			.row2_title {
+				font-size: 16px;
+			}
+			.btn_left {
+				padding-left: 0;
+			}
+			/*content style END*/
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<!-- Header START-->
+			<div class="header">
+				<div class="row headimg">
+					<img src="/HomeEducationPlatform/static/system/applicant/img/male.png" />
+				</div>
+				<div class="row header_row"> <span>欢迎您:</span><span id="name"></span></div>
+				<div class="row header_row2">
+					<div class="col-md-6 col-sm-6 right">
+						<span>ID:</span><span id="id"></span>
+					</div>
+					<div class="col-md-6 col-sm-6 left">
+						<i class="fa fa-check-circle"></i>
+						<span id="status"></span></div>
+					</div>	
+				</div>
+			</div>
+			<!-- Header END -->
+			<!-- Content START -->
+			<div class="content">
+				<div class="container">
+					<div class="row content_row">
+						<div class="col-md-3 col-sm-3 content_row_left">
+							<div class="row left_row1">
+								<i class="fa fa-wrench" aria-hidden="true"></i>
+								<span class="menu2title">快捷操作</span>
+							</div>
+							<!--简历更新 START-->
+							<div class="row left_row2">
+								<div class="row row2_title_row"> <span class="row2_title">简历更新</span></div>
+								<div class="row menu_row">
+									<div class="col-md-6 col-sm-6 btn_left">
+										<a class="btn menuItem" href="/HomeEducationPlatform/views/system/applicant/note.html">修改简历</a>
+									</div>
+									<div class="col-md-6 col-sm-6">
+										<a class="btn menuItem" href="/HomeEducationPlatform/views/system/applicant/myposition_record.html">查看申请</a>
+									</div>
+								</div>
+								<div class="row menu_row">
+									<div class="col-md-6 col-sm-6 btn_left">
+										<a class="btn menuItem" href="/HomeEducationPlatform/views/system/applicant/showImfo.html">个人资料</a>
+									</div>
+									<div class="col-md-6 col-sm-6">
+										<a class="btn menuItem" href="/HomeEducationPlatform/views/system/applicant/modify_psd.html">修改资料</a>
+									</div>
+								</div>
+								
+							</div>
+							<!--简历更新 END-->
+							
+						</div>
+						<div class="col-md-9 col-sm-9 content_row_right">
+							<div class="row right_row1" id="content_width">
+								<span class="line"> &nbsp;</span>
+								<span class="menu2text">个人中心首页</span>
+							</div>
+							<div class="rightContent">
+								<iframe src="/HomeEducationPlatform/views/system/applicant/myposition_record.html" id="iframe-main" frameborder='0' style="width:100%;"></iframe>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Content END -->
+		</div>
+	
+		<!--Jquery Library-->
+	    <script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+	    <!--Bootstrap core JavaScript-->
+	    <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+		<!-- ui-choose -->
+		<script src="/HomeEducationPlatform/static/modules/plugin/uichoose/ui-choose.js"></script>
+		<script src="/HomeEducationPlatform/static/system/applicant/js/index.js"></script>
+		<script type="text/javascript">
+		    //初始化相关元素高度
+		    function init(){
+		        /*$("body").height($(window).height()-80);*/
+		        $("#iframe-main").height($(window).height()-90);
+		        $("#iframe-main").width($("#content_width").width);
+		        /*$("#sidebar").height($(window).height()-50);*/
+		    }
+			$(function(){
+		        init();
+		        $(window).resize(function(){
+		            init();
+		        });
+		    }); 
+		
+		    // This function is called from the pop-up menus to transfer to
+		    // a different page. Ignore if the value returned is a null string:
+		    function goPage (newURL) {
+		        // if url is empty, skip the menu dividers and reset the menu selection to default
+		        if (newURL != "") {
+		            // if url is "-", it is this page -- reset the menu:
+		            if (newURL == "-" ) {
+		                resetMenu();            
+		            } 
+		            // else, send page to designated URL            
+		            else {  
+		                document.location.href = newURL;
+		            }
+		        }
+		    }
+		 // 借用 parent controller的函数 登录获取用户数据
+		    $.ajax({
+				url: '/HomeEducationPlatform/parent/getUserInfo',
+				type: 'POST',
+				dataType: 'json',
+				
+				}).done(function(data) {
+					$("#id").text(data.id);
+					$("#name").text(data.name);
+					 var status = data.statue;
+					 console.log(status);
+						
+					$("#status").text(status);
+						
+		        }).fail(function() {
+					console.log("错误");
+		        	setTimeout("",400);
+		        });
+		   
+		   </script>
+	</body>
+</html>

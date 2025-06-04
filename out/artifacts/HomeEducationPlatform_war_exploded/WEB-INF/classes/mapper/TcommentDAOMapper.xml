@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.TcommentDAO">
+
+	
+	<!-- 通过简历id 获取教师进行评论 -->
+	<select id="geTcommentsForResume" resultType="com.education.entity.Tcomment">
+		select * from tcomment where flag = 1 and resumeid = #{resumeid} order by createtime DESC
+	</select>
+	<!-- 通过职位id 获取职位的·评论 -->
+	<select id="geTcommentsForPosition" resultType="com.education.entity.Tcomment">
+		select * from tcomment where flag = 1 and positionid = #{positionid} order by createtime DESC
+	</select>
+	
+	<delete id="deleteTcomment" parameterType="java.lang.Long">
+		delete from tcomment where id = #{id}
+	</delete>
+	
+	<insert id="insertTcomment" parameterType="com.education.entity.Tcomment">
+		insert into tcomment(positionid,resumeid,name,content,createtime) values(#{positionid},#{resumeid},#{name},#{content},#{createtime})
+	</insert>
+	
+</mapper>

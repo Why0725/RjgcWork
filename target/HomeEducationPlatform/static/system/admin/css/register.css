@@ -1,0 +1,108 @@
+@charset utf-8
+*{
+	padding: 0;
+	margin: 0;
+}
+a:link,a:visited,a:hover,a:active {
+	text-decoration: none;
+	color: rgb(30, 193, 236);
+}
+
+.reg_header {
+	
+	height: 100px;
+}
+.reg_content {
+	
+	height: 500px;
+}
+.reg_footer {
+	
+	height: 100px;
+}
+
+.content_title {
+	
+	height: 100px;
+	
+}
+h2 {
+	font-size: 25px;
+	font-weight: 500 !important;
+	height: 100px;
+	line-height: 100px;
+	vertical-align: middle;
+	text-align: center;
+}
+.content_form {
+	border-bottom: 1px solid rgb(229, 229, 229);
+	height:320px;
+	
+}
+.content_footer {
+	clear: both;
+	font-size: 15px;
+	color: rgb(153, 153, 153);
+	width: 760px;
+	text-align: right;
+	padding-top: 20px;
+}
+
+
+
+.row {
+	font-size: 15px;
+	height: 60px;
+}
+i {
+	color: rgb(232, 63, 63);
+}
+.intext {
+	
+	text-align:right;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+}
+.form-control {
+	width: 380px;
+	height: 40px;
+	-webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.form-control:focus {
+	border: 1px solid rgba(102, 204, 255,0.5);
+	
+}
+.btn_row {
+	padding-top: 10px;
+}
+.btn {
+	background: rgb(228, 59, 60);
+	color: #fff !important;
+	font-size: 18px;
+}
+.btn:focus,.btn:active,
+.btn:active:focus,
+.btn.active:focus,
+.btn.focus,
+.btn:active.focus,
+.btn.active.focus {
+    outline: none !important;   
+    color: #fff !important;
+    box-shadow: none;
+    border: 0;
+}
+.btn:active {
+	background: rgba(228, 59, 60,0.7);
+}
+
+
+
+.cue {
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+}
+	

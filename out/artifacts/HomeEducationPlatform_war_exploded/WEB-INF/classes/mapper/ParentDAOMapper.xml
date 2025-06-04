@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.education.dao.ParentDAO">
+	<!-- 添加招聘信息 -->
+	<insert id="insertPosition" parameterType="com.education.entity.Position">
+		insert into tposition(name,place,information,salary,contact,statue,user,flag,createtime) values(#{name},#{place},#{information},#{salary},#{contact},0,#{user},1,#{createtime})
+	</insert>
+	
+	<!-- 根据简历id 查找简历 -->
+	<select id="getResumeByResumeid" parameterType="java.lang.Integer" resultType="com.education.entity.Resume">
+		select * from resume where id = #{resumeid}
+	</select>
+	<!-- 通过职位信息查看 投了这个职位的简历的信息 -->
+	<select id="findResumesByPositionid" parameterType="java.lang.Integer" resultType="com.education.entity.Resume">
+		select * from resume where user in (select user from userposition where position = #{positionid})
+	</select>
+	
+	<!-- 通过用户id 获取所有的该用户的招聘信息 -->
+	<select id="findPositionByuserid" parameterType="java.lang.Integer" resultType="com.education.entity.Position">
+		select * from tposition where user = #{userid}
+	</select>
+	
+	<!-- 通过简历id删除职位信息 -->
+	<delete id="deletePosition" parameterType="java.lang.Integer">
+		delete from tposition where id = #{id}
+	</delete>
+	
+	<!-- 修改 职位信息 -->
+	<update id="updatePosition" parameterType="com.education.entity.Position">
+		update tposition set name = #{name},place = #{place},information = #{information},salary = #{salary},contact = #{contact},statue = 0 ,user = #{user},flag = #{flag},createtime = #{createtime} where id = #{id}
+	</update>
+	<!-- 通过id 获取职位信息 -->
+	<select id="findPositionBypositionid" parameterType="java.lang.Integer" resultType="com.education.entity.Position">
+		select * from tposition where id = #{positionid}
+	</select>	
+	
+	
+	<delete id="RemoveUserpositionByPositionID" parameterType="java.lang.Integer">
+		delete from userposition where position = #{id}
+	</delete>
+</mapper>

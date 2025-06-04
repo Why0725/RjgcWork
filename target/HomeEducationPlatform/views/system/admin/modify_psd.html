@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>修改密码</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css?v=3.3.6" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/modules/plugin/bootstrap-responsive/bootstrap-responsive.min.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-style2.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-media.css" />
+<link rel="stylesheet" href="/HomeEducationPlatform/static/system/admin/css/matrix-media.css" />
+<link href="/HomeEducationPlatform/static/modules/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,800' rel='stylesheet' type='text/css'>
+<style>
+	 h1 {
+	 	font-weight: bold;
+	 }
+	#content-header h1 {
+		padding-top: 10px;
+    padding-bottom: 10px;
+	}
+	form {
+		padding-bottom: 35px;
+	}
+	.row {
+		padding-top: 15px;
+		padding-left: 15px;
+		padding-right: 15px;
+		/*padding-bottom: 15px;*/
+	}
+	.inplabel {
+		text-align: right;
+		height: 32px;
+		line-height: 32px;
+		vertical-align: middle;
+	}
+	.btn_row {
+		padding-top: 25px;
+		margin-left: 0px;
+		text-align: center;
+	}
+</style>
+</head>
+<body>
+
+<div id="content">
+  <div id="content-header">
+      <h1>个人信息</h1>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="widget-box">
+          <div class="widget-title"> <span class="icon"> <i class="fa fa-pencil"></i> </span>
+            <h5>修改个人信息</h5>
+          </div>
+          <div class="widget-content nopadding">
+           <div class="row">
+              	<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">用户名:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="text" name="name" id="name" class="form-control input" readonly="readonly">
+                        </div>
+		            </div>
+              </div>
+             
+              <div class="row">
+              	<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">密码:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="password" name="password" id="password" class="form-control input" onblur="checkPass()">
+                        </div>
+		            </div>
+              </div>
+              <div class="row">
+              	<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">新密码:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="password" name="newpsd" id="newpsd" class="form-control input">
+                        </div>
+		            </div>
+              </div>
+              <div class="row">
+              	<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">确认密码:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="password" name="newpsd2" id="newpsd2" class="form-control input" onblur="checknewPass()">
+                        </div>
+		            </div>
+              </div>
+              <div class="row">
+              	<div class="control-group col-md-8 col-sm-8 col-md-offset-1">
+		              	<label class="col-sm-4 col-md-4 control-label inplabel">邮箱:</label>
+                        <div class="col-sm-8 col-md-8 inp">
+                            <input type="email" name="email" id="email" class="form-control input" onblur="checkEmail()">
+                        </div>
+		            </div>
+              </div>
+              <div class="form-actions btn_row">
+                
+                <button id="next" type="button" class="btn btn-primary" onclick="updateuser()"/>保存</button>
+              </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+<script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.ui.custom.js"></script> 
+<script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script> 
+<!--<script src="js/jquery.validate.js"></script> 
+<script src="js/jquery.wizard.js"></script> -->
+<script src="/HomeEducationPlatform/static/system/admin/js/matrix.js"></script> 
+<!--<script src="js/matrix.wizard.js"></script>-->
+</body>
+
+<script type="text/javascript">
+		var password;
+		var email;
+		$.ajax({
+			url: '/HomeEducationPlatform/admin/getUserByid',
+			type: 'POST'
+			}).done(function(data) {
+				var name = data.name;
+				password = data.password;
+				email = data.email;
+				
+				$("#name").val(name);
+				$("#email").val(email);
+		    }).fail(function() {
+				console.log("错误");
+		    	setTimeout("",400);
+		    });
+			function checkPass() {
+				var pas = $("#password").val();
+				if (pas != password){
+					alert("密码错误，不能修改");
+					return false;
+				}
+			}
+	
+			function checknewPass(){
+				var newpass = $("#newpsd").val();
+				var repass = $("#newpsd2").val();
+				if(newpass == repass){
+					return true;
+				}else{
+					alert("两次密码输入错误，请检查");
+					return false;
+				}
+			}
+			
+			
+			function checkEmail() {
+				var myemail = $('#email').val();
+				if(myemail != email){
+					$.ajax({
+						url: '/HomeEducationPlatform/admin/checkEmail',
+						type: 'POST',
+						dataType: 'json',
+						data:{"email":myemail},
+						}).done(function(data) {
+							var result = data.result;
+							if(result == "fail"){
+								alert("邮箱已存在");
+								return false;
+							}
+							
+					    }).fail(function() {
+							console.log("错误");
+					    	setTimeout("",400);
+					    });
+					}
+			}	
+	
+		
+			function updateuser() {
+				var pas = $("#password").val();
+				if (pas != password){
+					alert("密码错误，不能修改");
+					return false;
+				}
+				var newpass = $("#newpsd").val();
+				var repass = $("#newpsd2").val();
+				if(newpass != repass){
+					alert("两次密码输入错误，请检查");
+					return false;
+				}
+				$.ajax({
+					url: '/HomeEducationPlatform/admin/updateUserIm',
+					type: 'POST',
+					dataType: 'json',
+					data:{"password":$("#newpsd2").val(),"email":$("#email").val()},
+					}).done(function(data) {
+						var result = data.result;
+						if(result == "fail"){
+							alert("修改失败");
+							//window.location.href = 'loginout';
+						}else{
+							alert("修改成功，重新登录");
+							window.location.href = 'loginout';
+						}
+						
+				    }).fail(function() {
+						console.log("错误");
+				    	setTimeout("",400);
+				    });
+				}
+</script>
+
+</html>

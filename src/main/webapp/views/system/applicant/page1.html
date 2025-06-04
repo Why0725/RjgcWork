@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	  	<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	  	<title>长春家教</title>
+	  	<link href="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/style.css" rel="stylesheet">
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/color.css" rel="stylesheet">
+	  	<link href="/HomeEducationPlatform/static/system/applicant/css/responsive.css" rel="stylesheet">
+	  	<!--<link href="../../../static/modules/plugin/bootstrap/bootstrap.min.css" rel="stylesheet"/>
+	  	<link href="../../../static/system/applicant/css/style.css" rel="stylesheet">
+	  	<link href="../../../static/system/applicant/css/color.css" rel="stylesheet">
+	  	<link href="../../../static/system/applicant/css/responsive.css" rel="stylesheet">-->
+		<style>
+		/* */
+		a,a:link,a:hover,a:active,a:focus,a:visited {
+			text-decoration: none;
+		}
+		/**/
+		.header {
+			/*padding: 0px !important;*/
+			margin: 0px auto;
+		}
+		.gt_menu_bg {
+			height: 60px;
+		}
+		.menutitle {
+			width: 120px !important;
+			text-align: center;
+		}
+		.menutitle>a {
+			letter-spacing: 2px;
+		}
+		.menutitle ul li {
+			width: 60%;
+		}
+		.gt_top_wrap {
+			height: 38px;
+		}
+		.addr {
+			padding-left: 0px;
+		}
+		.gt_copyright_wrap {
+			background: rgb(22, 23, 28);
+		}
+		.selectbox {
+			width: 300px;
+			/*height:*/
+		}
+		.boxtitle,h4 {
+			width: 300px;
+			height:60px;
+			line-height: 60px;
+			vertical-align: middle;
+			text-align: center;
+			background: rgb(45, 204, 112);
+			color: #fff;
+			letter-spacing: 2px;
+			font-weight: 500;
+		}
+		.boxbody {
+			/*border: 1px solid #CCCCCC;*/
+			padding: 20px 10px;
+			background-color: #fff;
+		}
+		.search_btn {
+			width: 100%;
+			height: 40px;
+			/*line-height: 40px;*/
+			vertical-align: middle;
+			color: #fff;
+			font-size: 15px;
+			letter-spacing:  5px;
+			background: rgb(45, 204, 112);
+			border-radius: 0px;
+		}
+		.row {
+			margin-bottom: 15px;
+		}
+		.col-md-8 select {
+			width: 185px;
+			position: relative;
+			left: -15px;
+		}
+		.inplabel {
+			font-size: 15px;
+			letter-spacing: 1px;
+			font-weight: 400;
+			height: 34px;
+			line-height: 34px;
+			vertical-align: middle;
+		}
+		.form-control {
+			border-radius: 0px;
+			border: 1px solid rgb(234, 234, 234);
+		}
+		.content {
+			padding-top: 35px;
+			padding-bottom: 35px;
+			/*background-image: url(../../../static/system/applicant/img/teacher.jpg);*/
+			/*width: 80%;*/
+			background-color: rgb(230, 239, 246);
+			margin: 0px;
+		}
+		html,body {
+			background-color: rgb(230, 239, 246);
+		}
+		.footer .row {
+			margin: 0px !important;
+		}
+		.footer {
+			margin-top: 100px;
+			/*background: rgb(72, 75, 80);*/
+			font-size: 14px;
+			background: #000;
+			height: 180px;
+		/*	color: rgb(161, 162, 164);*/
+			color: #666666;
+			padding-top: 40px;
+		}
+		.footer_list_row {
+			height: 30px;
+			line-height: 30px;
+			vertical-align: middle;
+		}
+		.footer_list_title {
+			font-size: 17px;
+		}
+		.phone {
+			font-size: 27px;
+			color: rgb(40, 183, 121);
+		}
+		.footer_list {
+			border: none;
+		}
+		.footer .row {
+			text-align: center;
+		}
+		/*公告*/
+		marquee {
+			scrollam
+		}
+		</style>
+	<body>
+		<div class="row content" id="#content">
+			
+	    	<div class="container">
+	    		<!--公告-->
+				<div class="row">
+					<marquee id="gongshi" style="scrollamount='2' direction='left'" >
+						
+					</marquee>
+				</div>
+				
+				<!--//公告-->
+	    		<div class="col-md-3 col-sm-3">
+	    				<div class="selectbox">
+	    						<div class="boxtitle">
+	    							<h4>=====&nbsp;&nbsp;免费找教员&nbsp;&nbsp;=====</h4>
+	    						</div>
+	    						<div class="boxbody">
+	    							
+	    							<div class="row">
+	    								<label class="col-sm-4 col-md-4 control-label inplabel">授课区域</label>
+	    								<div class="col-sm-8 col-md-8 inp">
+	                        			<select id="place" class="form-control">
+			    							<option value="不限">不限</option>
+					                        <option value="南关区">南关区</option>
+					                        <option value="宽城区">宽城区</option>
+					                        <option value="朝阳区">朝阳区</option>
+					                        <option value="二道区">二道区</option>
+					                        <option value="绿园区">绿园区</option>
+											<option value="双阳区">双阳区</option>
+											<option value="九台区">九台区</option>
+											<option value="农安县">农安县</option>
+											<option value="榆树市">榆树市</option>
+											<option value="德惠市">德惠市</option>
+											<option value="公主岭市">公主岭市</option>
+			    						</select>
+	                   				 </div>
+	    							</div>
+	    							<div class="row">
+	    								<label class="col-sm-4 col-md-4 control-label inplabel">求教科目</label>
+	    								<div class="col-sm-8 col-md-8 inp">
+					    				<select id="kemu" class="form-control">
+			    							<option value="不限">不限</option>
+					                        <option value="小学">小学课程</option>
+					                        <option value="初中">初中课程</option>
+					                        <option value="高中">高中课程</option>
+					                        <option value="大学">大学课程</option>
+			    						</select>
+					    				</div>
+	    							</div>
+	    							
+	    							<div class="row">
+	    								<div class="col-md-12 col-sm-12">
+	    									<button type="button" class="btn search_btn" onclick="seacherTeacher()">搜索</button>
+	    								</div>
+	    							</div>
+	    						</div>
+	    						<script type="text/javascript">
+
+		    				    	function seacherTeacher() {
+		    							var place = $('#place').val();
+		    							var kemu = $('#kemu').val();
+		    							
+		    							console.log(place+"------"+kemu);
+		    							 $.ajax({
+		    									url: '/HomeEducationPlatform/applicant/searchTeacher',
+		    									type: 'POST',
+		    									dataType: 'json',
+		    									data: {"kemu":kemu,"place":place},
+		    									}).done(function(data) {
+		    										var s = data.result;
+		    										if(s==1){
+		    											document.location.href ="/HomeEducationPlatform/views/system/applicant/teachers.html";
+		    										}
+		    							        }).fail(function() {
+		    										console.log("错误");
+		    							        	setTimeout("",400);
+		    							        });
+		    						}
+	    						</script>
+	    				</div>
+	    		</div>
+	    		<div class="col-md-4 col-sm-4 col-md-offset-3">
+	    			<img style="padding-top: 40px;width: 500px;" src="/HomeEducationPlatform/static/system/applicant/img/teacher.png"/>
+	    		</div>
+	    	</div>
+    	</div>
+    	<div class="footer">
+	    	<div class="row">
+	    		<!--第一列 START-->
+	    		<div class="col-md-3 col-sm-3 footer_list">
+	    			<div class="row footer_list_row footer_list_title"> <span>服务热线</span> </div>
+	    			<div class="row footer_list_row"> <span>(工作日9:00 ~ 18:00)</span> </div>
+	    		</div>
+	    		<!--第一列 END-->
+	    		<!--第二列 START-->
+	    		<div class="col-md-6 col-sm-6">
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>会员指南</span> </div>
+		    			<div class="row footer_list_row"> <span>我是教员</span> </div>
+		    			<div class="row footer_list_row"> <span>我是学员</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>网站导航</span> </div>
+		    			<div class="row footer_list_row"> <span>帮助中心</span> </div>
+		    			<div class="row footer_list_row"> <span>服务城市</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>简介</span> </div>
+		    			<div class="row footer_list_row"> <span>关于我们</span> </div>
+		    			<div class="row footer_list_row"> <span>服务声明</span> </div>
+	    			</div>
+	    			<div class="col-md-3 col-sm-3 footer_list">
+	    				<div class="row footer_list_row footer_list_title"> <span>合作</span> </div>
+		    			<div class="row footer_list_row"> <span>友情链接</span> </div>
+	    			</div>
+	    		</div>
+	    		<!--第二列 END-->
+	    	</div>
+	    </div>
+	    <!--页脚END-->
+	  <script src="/HomeEducationPlatform/static/modules/plugin/jquery/jquery.min.js"></script>
+	  <script src="/HomeEducationPlatform/static/modules/plugin/bootstrap/bootstrap.min.js"></script>
+	  
+	  <!--<script src="../../../static/modules/plugin/jquery/jquery.min.js"></script>
+	  <script src="../../../static/modules/plugin/bootstrap/bootstrap.min.js"></script>-->
+		<script type="text/javascript">
+
+		    //初始化相关元素高度
+		    function init(){
+		    	$(".content").height($("body").innerHeight);
+		        $("body").height($(window).height()-80);
+		        $("#iframe-main").height($(window).height()-90);
+		       $("#iframe-main").height(window.innerWidth);
+		        /*$("#sidebar").height($(window).height()-50);*/
+		    }
+		
+		    
+		    $.ajax({
+				url: '/HomeEducationPlatform/admin/getNotice',
+				type: 'POST',
+				dataType: 'json',
+				
+				}).done(function(data) {
+					var notice = data.notice;
+					
+					$("#gongshi").html(notice)
+		        }).fail(function() {
+					console.log("错误");
+		        	setTimeout("",400);
+		        });
+		    $(function(){
+		        init();
+		        $(window).resize(function(){
+		            init();
+		        });
+		    });
+   			
+    </script>
+	</body>
+</html>
